@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as SessionAPIUtil from './util/session_api_util';
 import configureStore from './store/store';
+import Root from './components/root';
+
+// TEST!!!!!!!!!!!!!!!!!!!!!!
+    import * as SessionAPIUtil from './util/session_api_util';
+    import * as SessionActions from './actions/session_actions';
+// TEST!!!!!!!!!!!!!!!!!!!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
     const store = configureStore();
 
-    // test
+    // TEST!!!!!!!!!!!!!!!!!!!
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.login = SessionAPIUtil.login;
     window.logout = SessionAPIUtil.logout;
     window.signup = SessionAPIUtil.signup;
-    // test
+    // TEST!!!!!!!!!!!!!!!!!!!
 
-    ReactDOM.render(<h1>Petsy!</h1>, document.getElementById('root'))
+    ReactDOM.render(<Root store={ store }/>, document.getElementById('root'))
 });

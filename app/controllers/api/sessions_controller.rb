@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
       if current_user
         logout!
       else
-        render json: ["No current user"], status: 400
+        render json: ["No current user"], status: 404
       end
   end
 end
