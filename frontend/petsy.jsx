@@ -5,7 +5,6 @@ import Root from './components/root';
 
 // TEST!!!!!!!!!!!!!!!!!!!!!!
     import * as SessionAPIUtil from './util/session_api_util';
-    import * as SessionActions from './actions/session_actions';
 // TEST!!!!!!!!!!!!!!!!!!!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
