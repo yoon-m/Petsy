@@ -4,16 +4,21 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import { AuthRoute } from '../util/route_util';
+import Modal from './modal/modal';
+import CategoryNav from './category_nav/category_nav';
 
 const App = () => (
-    <div>
+    <div className="main-container">
+        <Modal />
         <header>
-            <h1>Petsy</h1>
             <GreetingContainer />
+            <CategoryNav />
         </header>
 
-        <Route path="/login" component={LoginFormContainer} />
-        <Route path="/signup" component={SignupFormContainer} />
+        {/* unnecessary routes b/c we're using MODALS */}
+        {/* <AuthRoute path="/login" component={LoginFormContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     </div>
 );
 

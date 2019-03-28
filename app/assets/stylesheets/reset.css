@@ -21,3 +21,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
