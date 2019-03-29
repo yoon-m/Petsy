@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TEST!!!!!!!!!!!!!!!!!!!!!!
-    import * as SessionAPIUtil from './util/session_api_util';
+    import * as ProductApiUtil from './util/product_util';
 // TEST!!!!!!!!!!!!!!!!!!!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,9 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // TEST!!!!!!!!!!!!!!!!!!!
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.login = SessionAPIUtil.login;
-    window.logout = SessionAPIUtil.logout;
-    window.signup = SessionAPIUtil.signup;
+    window.fetchProducts = ProductApiUtil.fetchAllProducts;
     // TEST!!!!!!!!!!!!!!!!!!!
 
     ReactDOM.render(<Root store={ store }/>, document.getElementById('root'))

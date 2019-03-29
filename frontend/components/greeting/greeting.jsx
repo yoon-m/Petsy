@@ -34,10 +34,12 @@ const Greeting = ({ currentUser, logout, openModal}) => {
 
                 <div className="user-dropdown">
                     <div className='nav-icons'>
-                        <i className="far fa-user fas dropbtn" onClick={toggleDropdown}></i>
+                        {/* <i className="far fa-user fas dropbtn" onClick={toggleDropdown}></i> */}
+                        <img src={window.defaultAvatar} className='avatar' onClick={toggleDropdown} />
                         <p>You <i className="fa fa-caret-down"></i></p>
                         <div className="dropdown-content" id='user-dropdown'>
-                            <i className="fas fa-user"></i>
+                            {/* <i className="fas fa-user"></i> */}
+                            <img src={window.defaultAvatar} className='avatar' />
                             <a href="#">{currentUser.first_name}</a>
                             <br/>
                             <button>View Profile</button>

@@ -220,13 +220,13 @@ body {
 
 .upper-line {
   border-top: 1px solid rgb(223, 223, 223);
-  width: 1000%;
+  width: 162%;
   margin-left: -50%;
 }
 
 .lower-line {
   border-top: 1px solid rgb(223, 223, 223);
-  width: 1000%;
+  width: 162%;
   margin-left: -50%;
 }
 
@@ -261,7 +261,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 75px;
+  top: 10vh;
   background-color: white;
   min-width: 250px;
   padding: 5px 16px;
@@ -296,4 +296,94 @@ body {
 
 .show {
   display: block;
+}
+
+.avatar {
+  width: 30px;
+  border-radius: 50%;
+}
+
+
+
+
+/* FOOTER */
+.footer-banner-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-size: 12px;
+}
+
+.footer-banner-left {
+  display: flex;
+  width: 60%;
+  align-items: center;
+}
+
+.footer-banner-left img {
+  width: 6vw;
+}
+
+.footer-banner-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+}
+
+.footer-banner-right a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-banner-right p {
+  color: grey;
+}
+
+.help-currency-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.help-currency-container button {
+  width: 250px;
+  height: 50px;
+}
+
+.footer-nav-container {
+  padding: 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-nav-container a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.footer-nav-container a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav-container h4 {
+  font-weight: 700;
+  margin-bottom: 15%;
+}
+
+.help {
+  color: black;
+  font-weight: 700;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  background-image: image-url('aboutPetsy.png');
+}
+
+.about img {
+  width: 100%;
 }

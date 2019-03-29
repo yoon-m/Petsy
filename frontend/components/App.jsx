@@ -7,6 +7,9 @@ import SignupFormContainer from './session_form/signup_form_container';
 import { AuthRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import CategoryNav from './category_nav/category_nav';
+import FooterBanner from './footer/footer_banner';
+import FooterNav from './footer/footer_nav';
+import About from './footer/about';
 
 const App = () => (
     <div className="main-container">
@@ -16,6 +19,26 @@ const App = () => (
             <CategoryNav />
         </header>
 
+
+        <footer className="footer-container">
+            <About />
+            <div className='footer-nav-container'>
+                <FooterNav />
+            </div>
+
+            <div className='help-currency-container'>
+                <div>
+                    <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
+                </div>
+                <div>
+                    <button>United States | English (US) | $ (USD)</button>
+                </div>
+            </div>
+
+            <div className='footer-banner-container'>
+                <FooterBanner />
+            </div>
+        </footer>
         {/* unnecessary routes b/c we're using MODALS */}
         {/* <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} /> */}

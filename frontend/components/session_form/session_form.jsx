@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
                     <br></br>
                         
                         <input type="text"
-                            value={this.state.first_name}
+                            value={this.state.first_name.charAt(0).toUpperCase() + this.state.first_name.slice(1)}
                             onChange={this.handleChange('first_name')}
                         />
                     </label>
