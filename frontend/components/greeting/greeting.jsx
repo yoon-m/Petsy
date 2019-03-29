@@ -11,7 +11,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
     };
 
     // window.onclick = function (e) {
-    //     debugger
     //     if (!e.target.matches('.dropbtn')) {
     //         let myDropdown = document.getElementById("user-dropdown");
     //         if (myDropdown.classList.contains('show')) {
@@ -19,7 +18,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
     //         }
     //     }
     // };
-
     if (currentUser) {
         borders = (
             <div className='vl'></div>
@@ -40,7 +38,7 @@ const Greeting = ({ currentUser, logout, openModal}) => {
                         <p>You <i className="fa fa-caret-down"></i></p>
                         <div className="dropdown-content" id='user-dropdown'>
                             <i className="fas fa-user"></i>
-                            <a href="#">Michael</a>
+                            <a href="#">{currentUser.first_name}</a>
                             <br/>
                             <button>View Profile</button>
                             <hr/>

@@ -6,7 +6,7 @@ import { clearErrors } from '../../actions/session_actions';
 
 const msp = state => {
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
     };
 };
 
