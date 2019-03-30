@@ -10,35 +10,45 @@ import CategoryNav from './category_nav/category_nav';
 import FooterBanner from './footer/footer_banner';
 import FooterNav from './footer/footer_nav';
 import About from './footer/about';
+import Blog from './blog/blog';
 
 const App = () => (
     <div className="main-container">
-        <Modal />
-        <header>
-            <GreetingContainer />
-            <CategoryNav />
-        </header>
+        <div className="nav-container">
+            <Modal />
+            <header>
+                <GreetingContainer />
+                <CategoryNav />
+            </header>
+        </div>
 
+        <div className='nav-container'>
+            <Blog />
+        </div>
 
-        <footer className="footer-container">
-            <About />
-            <div className='footer-nav-container'>
-                <FooterNav />
-            </div>
+        <About />
 
-            <div className='help-currency-container'>
-                <div>
-                    <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
+        <div className="nav-container">
+            <footer className="footer-container">
+                <div className='footer-nav-container'>
+                    <FooterNav />
                 </div>
-                <div>
-                    <button>United States | English (US) | $ (USD)</button>
-                </div>
-            </div>
 
-            <div className='footer-banner-container'>
-                <FooterBanner />
-            </div>
-        </footer>
+                <div className='help-currency-container'>
+                    <div>
+                        <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
+                    </div>
+                    <div>
+                        <button>United States | English (US) | $ (USD)</button>
+                    </div>
+                </div>
+
+                <div className='footer-banner-top'></div>
+                <div className='footer-banner-container'>
+                    <FooterBanner />
+                </div>
+            </footer>
+        </div>
         {/* unnecessary routes b/c we're using MODALS */}
         {/* <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} /> */}

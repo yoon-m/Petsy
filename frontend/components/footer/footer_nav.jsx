@@ -29,10 +29,10 @@ class FooterNav extends React.Component {
 
                 <div>
                     <h4>Follow Petsy</h4>
-                    <a href='#'><p>Facebook</p></a>
-                    <a href='#'><p>Instagram</p></a>
-                    <a href='#'><p>Pinterest</p></a>
-                    <a href='#'><p>Twitter</p></a>
+                    <a href='#'><p><i className="fab fa-facebook-square"></i> Facebook</p></a>
+                    <a href='#'><p><i className="fab fa-instagram"></i> Instagram</p></a>
+                    <a href='#'><p><i className="fab fa-pinterest-square"></i> Pinterest</p></a>
+                    <a href='#'><p><i className="fab fa-twitter"></i> Twitter</p></a>
                 </div>
             </>
         );

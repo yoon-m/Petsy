@@ -1,0 +1,47 @@
+import React from 'react';
+
+class Blog extends React.Component {
+    render() {
+        return (
+            <>
+                <div className='blog-container'>
+                    <div className='blog-header'>
+                        <a href="#"><h2>Fresh from the blog</h2></a>
+                        <a href='#'><p>Read the blog</p></a>
+                    </div>
+
+                    <div className='blog-posts-container'>
+                        <div className='blogs'>
+                            <a href='#' className='blog-links'><img src={window.blogPlaceholder} />
+                            <p className='blog-category'>FEATURED SHOPS</p>
+                            <h3 className='blog-title1'>Curated Vintage Home Decor From Horses for Courses</h3>
+                            <h3 className='blog-title2'>Curated Vintage Home Decor From Horses for Courses</h3>
+                            <p className='blog-content'>Authentic mid-century statement pieces and one-of-a-kind
+                                    finishing touches abound in this chic, German-based shop.</p></a>
+                        </div>
+
+                        <div className='blogs'>
+                            <a href='#' className='blog-links'><img src={window.blogPlaceholder} />
+                            <p className='blog-category'>SHOPPING GUIDES</p>
+                            <h3 className='blog-title1'>A pet lover's guide to animal hats</h3>
+                            <h3 className='blog-title2'>A pet lover's guide to animal hats</h3>
+                            <p className='blog-content'>Authentic mid-century statement pieces and one-of-a-kind
+                                finishing touches abound in this chic, German-based shop.</p></a>
+                        </div>
+
+                        <div className='blogs'>
+                            <a href='#' className='blog-links'><img src={window.blogPlaceholder} />
+                            <p className='blog-category'>INSPIRATION</p>
+                            <h3 className='blog-title1'>Curated Vintage Home Decor From Horses for Courses</h3>
+                            <h3 className='blog-title2'>Curated Vintage Home Decor From Horses for Courses</h3>
+                            <p className='blog-content'>Authentic mid-century statement pieces and one-of-a-kind
+                                finishing touches abound in this chic, German-based shop.</p></a>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+}
+
+export default Blog;

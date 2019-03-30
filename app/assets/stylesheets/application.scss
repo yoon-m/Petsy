@@ -23,8 +23,7 @@ body {
 }
 
 /* HEADER */
-
-.main-container {
+.nav-container {
   max-width: 80%;
   margin: auto;
 }
@@ -205,12 +204,11 @@ body {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.788);
   font-size: 14px;
-  padding: 10px 0;
+  padding: 1% 0;
 }
 
 .category-nav a:hover {
   border-bottom: 3px solid orange;
-  padding-top: -10px;
 }
 
 .category-nav {
@@ -303,15 +301,18 @@ body {
   border-radius: 50%;
 }
 
-
-
-
 /* FOOTER */
 .footer-banner-container {
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
   font-size: 12px;
+}
+
+.footer-banner-top {
+  border-top: 1px solid rgb(223, 223, 223);
+  width: 162%;
+  margin-left: -50%;
 }
 
 .footer-banner-left {
@@ -344,6 +345,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .help-currency-container button {
@@ -379,11 +381,176 @@ body {
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  background-image: image-url('aboutPetsy.png');
+  background-color: rgba(255, 222, 197, 0.748);
+  height: 75vh;
+  color: rgb(53, 52, 52);
+  overflow: hidden;
+  position: relative;
 }
 
 .about img {
   width: 100%;
+}
+
+.about h2 {
+  font-size: 40px;
+  font-family: "Guardian-EgypTT",serif;
+  padding: 1% 0;
+}
+
+.about h4 {
+  font-size: 30px;
+  font-family: "Guardian-EgypTT",serif;
+  text-align: center;
+  padding: 1% 0;
+}
+
+.about-header {
+  text-align: center;
+  padding-top: 2%;
+}
+
+.about-header a {
+  color: rgb(53, 52, 52);
+}
+
+.about-column-container {
+  display: flex;
+  justify-content: center;
+  margin: 2% 0;
+}
+
+.about-footer {
+  text-align: center
+}
+
+.about-column {
+  width: 30%;
+  padding: 0 2%;
+  text-align: center;
+}
+
+.about-column p {
+  line-height: 2;
+}
+
+.about-footer {
+  margin-top: 4%;
+  color: black;
+}
+
+.about-footer h3 {
+  font-weight: bolder;
+}
+
+.about-footer a {
+  text-decoration: none;
+  margin-top: 1%;
+  display: inline-block;
+  color: black;
+  padding: 1% 5%;
+  border: 2px solid black;
+  border-radius: 500px;
+}
+
+.about-footer a:hover {
+  border: 3px solid black;
+}
+
+.about-blue img {
+  border-radius: 50%;
+  position: absolute;
+  clip-path: ellipse(25% 40% at 50% 50%);
+  width: 30%;
+  right: 85%;
+  top: 60%;
+}
+
+.about-orange img {
+  position: absolute;
+  width: 15%;
+  left: 90%;
+  top: 80%;
+  transform: rotate(-30deg);
+}
+
+.about-yellow img {
+  position: absolute;
+  width: 15%;
+  top: -5%;
+  left: 85%;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+// BLOG
+.blog-container {
+  margin-bottom: 5%;
+}
+
+.blog-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.blog-posts-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-header p, .blog-header h2 {
+  display: inline-block;
+}
+
+.blog-header p:hover, .blog-header h2:hover {
+  text-decoration: underline;
+}
+
+.blog-header h2 {
+  font-weight: 600;
+}
+
+.blog-header p {
+  font-size: 13px;
+  margin-left: 2%;
+}
+
+.blog-header {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.blogs {
+  width: 32%;
+}
+
+.blog-category {
+  margin: 3% 0;
+  font-size: 13px;
+}
+
+.blog-title1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+
+.blog-content {
+  font-size: 13px;
+}
+
+.blog-title2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2%;
+  display: none;
+  text-decoration: underline;
+}
+
+.blog-links:hover {
+  .blog-title1 {
+    display: none;
+  }
+  .blog-title2 {
+    display: block;
+  }
 }
