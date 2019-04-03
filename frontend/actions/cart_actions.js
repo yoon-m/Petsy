@@ -19,12 +19,12 @@ const receiveCart = cart => {
     };
 };
 
-// export const removeItem = item => {
-//     return {
-//         type: REMOVE_ITEM,
-//         item
-//     };
-// };
+export const removeItem = item => {
+    return {
+        type: REMOVE_ITEM,
+        item
+    };
+};
 
 // export const deleteCart = () => {
 //     return {

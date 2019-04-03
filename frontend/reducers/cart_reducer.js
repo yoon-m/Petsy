@@ -13,7 +13,8 @@ const cartReducer = (state = {}, action) => {
 
         // case ADD_ITEM:
 
-        // case REMOVE_ITEM:
+        case REMOVE_ITEM:
+            debugger
             
 
         default:

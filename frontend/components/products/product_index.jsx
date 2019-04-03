@@ -6,9 +6,18 @@ import FooterNav from '../footer/footer_nav';
 import FooterBanner from '../footer/footer_banner';
 
 class ProductIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        // this.removeProduct = this.removeProduct.bind(this);
+    }
+
     componentDidMount() {
         this.props.fetchProducts().then(() => this.props.history.push('/products'));
     }
+
+    // removeProduct(e) {
+    //     this.props.removeProduct();
+    // }
 
     render() {
         return(
@@ -20,7 +29,14 @@ class ProductIndex extends React.Component {
                     <h1>Product Index</h1>
                     <ul>
                         {Object.values(this.props.products).map((product, idx) => {
-                            return <Link to={`products/${product.id}`} key={idx}><li key={product.id}>{product.title}</li></Link>
+                            return (
+                                <div key={idx} className='product-item'>
+                                    <Link to={`products/${product.id}`}>
+                                        <li key={product.id}>{product.title}</li>
+                                    </Link>
+                                    <button>Remove Item</button>
+                                </div>
+                            );
                         })}
                     </ul>
 
