@@ -8,8 +8,7 @@ const productsReducer = (state = {}, action) => {
         case RECEIVE_ALL_PRODUCTS:
             return action.products;
         case RECEIVE_PRODUCT:
-            return merge({}, state, state[action.product.id] = action.product);
-
+            return Object.assign({}, state, state[Object.keys(action.product)[0]] = action.product);
         default:
             return newState;
     }

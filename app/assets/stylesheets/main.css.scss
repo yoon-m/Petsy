@@ -1,0 +1,200 @@
+// MAIN LOGGED OUT
+.main-auth-container {
+  height: 120vh; 
+}
+
+.main-auth-header-container h2 {
+  text-align: center;
+  font-family: "Guardian-EgypTT",serif;
+  font-size: 32px;
+  margin: 5% 0;
+}
+
+.main-auth-header-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.main-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-flex-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-auth-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.main-auth-left-container {
+  width: 39%;
+}
+
+.main-auth-left {
+  display: flex;
+}
+
+.main-right-top {
+  background-image: image_url('mainRight.jpg');
+  height: 70%;
+  background-size: cover;
+  background-position: 0 50%;
+}
+
+.main-right-top h4{
+  padding: 4% 50% 2% 4%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.main-right-top p {
+  padding: 0 4%;
+  font-weight: 600;
+}
+
+.main-right-yellow p {
+  padding: 7.5% 0 9% 4%;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.main-right-yellow {
+  background-color: rgb(250, 210, 106);
+  margin-top: 4%;
+  height: 25%;
+}
+
+.main-left-yellow {
+  background-color: rgb(250, 210, 106);
+  text-align: center;
+}
+
+.main-left-yellow h3 {
+  padding: 37% 5% 0 5%;
+  font-family: "Guardian-EgypTT",serif;
+  font-size: 30px;
+}
+
+.main-left-yellow p {
+  margin-top: 3%;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.main-auth-left-container {
+  width: 65%;
+}
+
+.main-auth-right-container {
+  width: 33%;
+}
+
+.check-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.check-container h6 {
+  display: inline-block;
+}
+
+.check {
+  width: 33%;
+  text-align: center;
+  padding: 3%;
+}
+
+.check p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.check h6 {
+  font-size: 18px;
+  margin-left: 2%;
+}
+
+.fa-check {
+  color: orange;
+}
+
+.popular-item-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popular-container h3 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 2%;
+}
+
+// MAIN LOGGED IN
+.slide-container {
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+}
+
+.personalized-item-container {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.p-left-btn, .p-right-btn {
+  position: relative;
+  font-size: 25px;
+  font-weight: 100;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 50%;
+  padding: 0.2% 1.1% 0.5% 1.1%;
+  top: 23%;
+  color: rgb(101, 101, 101);
+}
+
+.p-left-btn {
+  right: -67%;
+}
+
+.p-right-btn {
+  right: -68%;
+}
+
+.p-left-btn:hover, .p-right-btn:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+.personalized-container {
+  margin-top: 3%;
+  height: 35vh;
+}
+
+.personalized-container a {
+  color: black;
+}
+
+.personalized-container a:hover {
+  color: rgb(87, 87, 87);
+}
+
+.personalized-container h3 {
+  font-size: 24px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  font-weight: 600;
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

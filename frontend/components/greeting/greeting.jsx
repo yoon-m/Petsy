@@ -6,18 +6,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
     let authButtons = null;
     let borders = null;
 
-    const toggleDropdown = () => {
-        document.getElementById('user-dropdown').classList.toggle('show');
-    };
-
-    // window.onclick = function (e) {
-    //     if (!e.target.matches('.dropbtn')) {
-    //         let myDropdown = document.getElementById("user-dropdown");
-    //         if (myDropdown.classList.contains('show')) {
-    //             myDropdown.classList.remove('show');
-    //         }
-    //     }
-    // };
     if (currentUser) {
         borders = (
             <div className='vl'></div>
@@ -25,24 +13,35 @@ const Greeting = ({ currentUser, logout, openModal}) => {
 
         protectedButtons = (
             <>
-                <div className='nav-icons'>
-                    <a href='/'><i className="far fa-bell fas"></i></a>
-                    <p>Notifications <i className="fa fa-caret-down"></i></p>
-                </div>
+                <button
+                    className='auth-buttons'
+                >
+                    <Link to='/sell'>Sell on Petsy</Link>
+                </button>
 
                 {borders}
 
-                <div className="user-dropdown">
+                {/* <div className='nav-icons'>
+                    <i className="far fa-bell fas"></i>
+                    <p>Notifications <i className="fa fa-caret-down"></i></p>
+                </div>
+
+                {borders} */}
+
+                <div id='flip'>
                     <div className='nav-icons'>
-                        {/* <i className="far fa-user fas dropbtn" onClick={toggleDropdown}></i> */}
-                        <img src={window.defaultAvatar} className='avatar' onClick={toggleDropdown} />
-                        <p>You <i className="fa fa-caret-down"></i></p>
-                        <div className="dropdown-content" id='user-dropdown'>
-                            {/* <i className="fas fa-user"></i> */}
-                            <img src={window.defaultAvatar} className='avatar' />
-                            <a href="#">{currentUser.first_name}</a>
-                            <br/>
-                            <button>View Profile</button>
+                        <div className='avatar-dropdown'>
+                            <img src={window.defaultAvatar} className='avatar avatar-hover' />
+                            <p>You <i className="fa fa-caret-down"></i></p>
+                        </div>
+
+                        <div className="dropdown-content" id='panel'>
+                            <Link to='/profile'><div className='dropdown-content-top'>
+                                <img src={window.defaultAvatar} className='avatar' />
+                                {currentUser.first_name}
+                                <br/>
+                                <button>View Profile</button>
+                            </div></Link>
                             <hr/>
                             <ul>
                                 <a href='#'><li>Favorites</li></a>
@@ -57,6 +56,11 @@ const Greeting = ({ currentUser, logout, openModal}) => {
                 </div>
 
                 {borders}
+
+                <div className="nav-icons">
+                    <a href={`/#/cart/`}><i className="fas fa-shopping-cart"></i></a>
+                    <p>Cart</p>
+                </div>
             </>
         );
     } else {
@@ -79,9 +83,8 @@ const Greeting = ({ currentUser, logout, openModal}) => {
         );
     }
 
-
     return (
-        <nav className="nav">
+        <nav className="nav" >
             <div className="nav-left">
                 <a href="/"><img src={window.navLogo} className='navLogo' /></a>
                 
@@ -99,12 +102,6 @@ const Greeting = ({ currentUser, logout, openModal}) => {
             </div>
 
             <div className="nav-right">
-                <button
-                    className='auth-buttons'
-                >
-                    Sell on Petsy
-                </button>
-                {borders}
                 {authButtons}
 
                 <div className="nav-icons">
@@ -114,20 +111,9 @@ const Greeting = ({ currentUser, logout, openModal}) => {
                 {borders}
                 
                 {protectedButtons}
-
-                <div className="nav-icons">
-                    <a href='/'><i className="fas fa-shopping-cart"></i></a>
-                    <p>Cart</p>
-                </div>
             </div>
         </nav>
     );
-
-    // const loggedIn = () => (
-    //     <button onClick={logout}>Log Out</button>
-    // );
-
-    // return currentUser ? loggedIn() : notLoggedIn();
 };
 
 export default Greeting;

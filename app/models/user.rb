@@ -3,7 +3,13 @@ class User < ApplicationRecord
     validates :password_digest, :first_name, presence: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
-    has_many :products
+    has_many :product_listings,
+        class_name: :Product,
+        foreign_key: :owner_id
+
+    has_many :cart_items,
+        class_name: :CartItem,
+        foreign_key: :user_id
 
     after_initialize :ensure_session_token
     attr_reader :password

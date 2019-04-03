@@ -4,25 +4,30 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
-import { AuthRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import CategoryNav from './category_nav/category_nav';
 import FooterBanner from './footer/footer_banner';
 import FooterNav from './footer/footer_nav';
 import About from './footer/about';
 import Blog from './blog/blog';
+import Gifts from './gifts/gifts';
+import Latest from './latest/latest';
+import MainContainer from './main/main_container';
 
 const App = () => (
     <div className="main-container">
         <div className="nav-container">
             <Modal />
-            <header>
+            
                 <GreetingContainer />
                 <CategoryNav />
-            </header>
+            
         </div>
 
         <div className='nav-container'>
+            <MainContainer/>
+            <Latest />
+            <Gifts />
             <Blog />
         </div>
 
@@ -39,7 +44,7 @@ const App = () => (
                         <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
                     </div>
                     <div>
-                        <button>United States | English (US) | $ (USD)</button>
+                        <button className='currency-button'><img src={window.usaFlag}/> United States | English (US) | $ (USD)</button>
                     </div>
                 </div>
 

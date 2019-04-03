@@ -24,3 +24,7 @@ export const fetchProducts = () => dispatch => {
 export const fetchProduct = id => dispatch => {
     return ProductAPIUtil.fetchProduct(id).then(product => dispatch(receiveProduct(product)));
 };
+
+export const createProduct = product => dispatch => {
+    return ProductAPIUtil.createProduct(product).then(product => dispatch(receiveProduct(product)));
+}

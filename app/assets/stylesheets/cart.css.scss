@@ -1,0 +1,38 @@
+// CART
+.cart-container {
+  background-color: rgb(250, 214, 220);
+  padding: 2% 0 5%;
+}
+
+.cart-item-container {
+  background-color: white;
+  width: 80%;
+  border: 1px solid rgb(99, 98, 98);
+  border-radius: 5px;
+  padding: 5%;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+}
+
+.cart-count {
+  font-size: 24px;
+  margin-bottom: 1%;
+  margin-left: 10%;
+}
+
+.cart-item-left {
+  width: 70%
+}
+
+.cart-item-right {
+  width: 30%;
+}
+
+.cart-vl {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  border-left: 1px solid rgb(99, 98, 98);
+  left: 60%;
+}
