@@ -8,16 +8,11 @@ import FooterBanner from '../footer/footer_banner';
 class ProductIndex extends React.Component {
     constructor(props) {
         super(props);
-        // this.removeProduct = this.removeProduct.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchProducts().then(() => this.props.history.push('/products'));
     }
-
-    // removeProduct(e) {
-    //     this.props.removeProduct();
-    // }
 
     render() {
         return(
@@ -34,7 +29,6 @@ class ProductIndex extends React.Component {
                                     <Link to={`products/${product.id}`}>
                                         <li key={product.id}>{product.title}</li>
                                     </Link>
-                                    <button>Remove Item</button>
                                 </div>
                             );
                         })}

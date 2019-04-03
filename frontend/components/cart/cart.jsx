@@ -48,7 +48,14 @@ class Cart extends React.Component {
                         <div className='cart-item-container'>
                             <div className='cart-item-left'>
                                 {cart_items.map(item => {
-                                    return <a key={item.id} href={`#/products/${item.product_id}`}><CartItem item={item} /></a>
+                                    return (
+                                        <div>
+                                            <a key={item.id} href={`#/products/${item.product_id}`}>
+                                                <CartItem item={item} />
+                                            </a>
+                                            <button>Remove from cart</button>
+                                        </div>
+                                    );
                                 })}
                             </div>
 
