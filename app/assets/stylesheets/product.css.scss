@@ -79,3 +79,86 @@
 .add-cart-btn:hover {
   background-color: rgba(0, 0, 0, 0.81);
 }
+
+.description-container h3, .review-form-container h3 {
+  font-weight: 600;
+  margin-bottom: 3vh;
+}
+
+.description-container p {
+  margin-bottom: 3vh;
+}
+
+.review-form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-left {
+  width: 40%;
+}
+
+.review-right {
+  width: 40%;
+}
+
+.review-post {
+  margin-bottom: 3%;
+  border: 1px solid rgb(113, 113, 113);
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.review-post h4 {
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+
+.review-form-container form textarea {
+  display: block;
+}
+
+.review-form-container input[type=text] {
+  width: 28vw;
+  margin-bottom: 1%;
+}
+
+.review-form-container input[type=submit] {
+  width: 31vw;
+  font-size: 22px;
+  background-color: black;
+  color: white;
+  padding: 2%;
+  margin-top: 1%;
+}
+
+.review-form-container input[type=submit]:hover {
+  background-color: rgba(0, 0, 0, 0.81);
+}
+// STARS
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:2em;
+  justify-content:space-around;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#fc0;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#f90;
+}

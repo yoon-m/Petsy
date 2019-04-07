@@ -5,6 +5,7 @@ import { createProduct } from '../../actions/product_actions';
 const msp = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
+        errors: state.errors.products
     };
 };
 

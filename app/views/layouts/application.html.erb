@@ -4,19 +4,13 @@
     <title>Petsy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(".avatar-dropdown").click(function () {
-                $("#panel").slideToggle(100);
-            });
-        });
-    </script>
+    
     <script type="text/javascript">
       window.navLogo = "<%= image_url('petsyWhiteSquareCropped.png') %>"
       window.aboutPetsy = "<%= image_url('aboutPetsy.jpg') %>"
@@ -36,6 +30,8 @@
       window.personalized2 = "<%= image_url('personalized2.jpg') %>"
       window.personalized3 = "<%= image_url('personalized3.jpg') %>"
       window.recent1 = "<%= image_url('recent1.jpg') %>"
+      window.petCollage = "<%= image_url('petCollage.jpg') %>"
+      window.stars = "<%= image_url('stars.png') %>"
     </script>
   </head>
 

@@ -2,35 +2,56 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
-import FooterNav from '../footer/footer_nav';
-import FooterBanner from '../footer/footer_banner';
-import CartItem from './cart_item';
+import Footer from '../footer/footer';
+import Modal from '../modal/modal';
 
 class Cart extends React.Component {
     constructor(props) {
         super(props);
-        // this.handlePay = this.handlePay.bind(this);
+        this.handlePay = this.handlePay.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchCart(this.props.currentUser.id);
     }
 
-    // handlePay(e) {
-    //     e.preventDefault();
-    //     this.props.deleteCart().then(this.props.history.push('/'));
-    // }
+    handlePay(e) {
+        if (this.props.cart) {
+            e.preventDefault();
+            alert('Thanks for testing my website!');
+            let itemIds = [];
+            Object.values(this.props.cart).map(item => {
+                itemIds.push(item.id);
+            });
+
+            this.props.removeAllItems(itemIds);
+            location.reload();
+        } else {
+            alert('Please add something to your cart!');
+        }
+    }
+
+    removeCartItem(id) {
+        this.props.removeFromCart(id).then(location.reload());
+    }
 
     render() {
         let cart_items = [];
-        let cart_count;
-        let cart_total = 0;
-        if (this.props.cart_items) {
-            cart_items = Object.values(this.props.cart_items);
-            cart_count = cart_items.length;
-            cart_items.forEach(item => cart_total += item.price);
+        let cart_count = 0;
+        let cart_total = null;
+
+        if (this.props.cart) {
+            cart_items = Object.values(this.props.cart);
+            cart_items.forEach(item => {
+                cart_total += (item.price * item.quantity);
+                cart_count += item.quantity;
+            });
+
             if (cart_count === 1) {
                 cart_count = (<h3 className='cart-count'>{cart_count} item in your cart</h3>)
+            } else if (cart_count === null) {
+
+                cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>)
             } else {
                 cart_count = (<h3 className='cart-count'>{cart_count} items in your cart</h3>)
             }
@@ -39,6 +60,7 @@ class Cart extends React.Component {
         return(
             <>
                 <div className="nav-container">
+                    <Modal />
                     <GreetingContainer />
                     <CategoryNav />
                 </div>
@@ -49,11 +71,12 @@ class Cart extends React.Component {
                             <div className='cart-item-left'>
                                 {cart_items.map(item => {
                                     return (
-                                        <div>
-                                            <a key={item.id} href={`#/products/${item.product_id}`}>
-                                                <CartItem item={item} />
+                                        <div key={item.id} >
+                                            <a href={`#/products/${item.product_id}`}>
+                                                <h3>{item.title}</h3>
                                             </a>
-                                            <button>Remove from cart</button>
+                                            <input className={`${item.id}-quantity`} type="number" min='1' defaultValue={item.quantity} />
+                                            <button onClick={() => this.removeCartItem(item.id)}>Remove from cart</button>
                                         </div>
                                     );
                                 })}
@@ -62,34 +85,16 @@ class Cart extends React.Component {
                             <div className='cart-vl'></div>
 
                             <div className='cart-item-right'>
-                                Total: ${cart_total}
+                            Total: ${Math.round((cart_total + 0.00001) * 100) / 100}
                                 <br></br>
-                                <button>Pay now</button>
+                                <button onClick={this.handlePay}>Pay now</button>
                             </div>
-                        {/* <button onClick={() => this.props.clearCart(this.props.cart.id)}>Clear Cart</button> */}
+                        
                         </div>
                     </div>
 
                 <div className="nav-container">
-                    <footer className="footer-container">
-                        <div className='footer-nav-container'>
-                            <FooterNav />
-                        </div>
-
-                        <div className='help-currency-container'>
-                            <div>
-                                <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
-                            </div>
-                            <div>
-                                <button className='currency-button'><img src={window.usaFlag} /> United States | English (US) | $ (USD)</button>
-                            </div>
-                        </div>
-
-                        <div className='footer-banner-top'></div>
-                        <div className='footer-banner-container'>
-                            <FooterBanner />
-                        </div>
-                    </footer>
+                    <Footer />
                 </div>
             </>
         )

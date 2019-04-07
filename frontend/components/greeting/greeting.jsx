@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout, openModal}) => {
+
+    const handleDropdown = () => {
+        $("#panel").slideToggle(100);
+    };
+    
     let protectedButtons = null;
     let authButtons = null;
     let borders = null;
@@ -21,16 +26,9 @@ const Greeting = ({ currentUser, logout, openModal}) => {
 
                 {borders}
 
-                {/* <div className='nav-icons'>
-                    <i className="far fa-bell fas"></i>
-                    <p>Notifications <i className="fa fa-caret-down"></i></p>
-                </div>
-
-                {borders} */}
-
                 <div id='flip'>
                     <div className='nav-icons'>
-                        <div className='avatar-dropdown'>
+                        <div className='avatar-dropdown' onClick={handleDropdown}>
                             <img src={window.defaultAvatar} className='avatar avatar-hover' />
                             <p>You <i className="fa fa-caret-down"></i></p>
                         </div>

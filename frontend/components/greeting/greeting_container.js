@@ -14,4 +14,4 @@ const mdp = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal)),
 });
 
-export default connect(msp,mdp)(Greeting);
+export default connect(msp, mdp)(Greeting);

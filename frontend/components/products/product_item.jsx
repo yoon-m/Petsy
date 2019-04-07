@@ -2,12 +2,67 @@ import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
-import FooterNav from '../footer/footer_nav';
-import FooterBanner from '../footer/footer_banner';
+import Footer from '../footer/footer';
+import Modal from '../modal/modal';
 
 class ProductItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            body: '',
+            rating: 5,
+            product_id: 0,
+        };
+        this.addToCart = this.addToCart.bind(this);
+        this.buyNow = this.buyNow.bind(this);
+        this.createReview = this.createReview.bind(this);
+        this.ratingClick = this.ratingClick.bind(this);
+    }
+    
     componentDidMount() {
-        this.props.fetchProducts().then(this.props.fetchProduct(this.props.match.params.productId));
+        this.props.fetchProduct(this.props.match.params.productId);
+        this.props.fetchReviews(this.props.match.params.productId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.productId !== prevProps.match.params.productId) {
+            this.props.fetchProduct(this.props.match.params.productId);
+            this.props.fetchReviews(this.props.match.params.productId);
+        }
+    }
+
+    addToCart(e) {
+        e.preventDefault();
+        let quantity = document.getElementById('quantity').value;
+        let item = {
+            user_id: this.props.currentUser.id,
+            product_id: this.props.product.id,
+            quantity: quantity
+        };
+        this.props.fetchCart(this.props.currentUser.id);
+        this.props.addToCart(item).then(this.props.history.push('/cart'));
+    }
+
+    buyNow(e) {
+        e.preventDefault();
+        alert('Thanks for testing my website!');
+        document.location.href = "/";
+    }
+
+    handleChange(field) {
+        return e => {
+            this.setState({ [field]: e.target.value, product_id: this.props.product.id });
+        };
+    }
+
+    ratingClick(e) {
+        this.setState({ rating: $("input[name='rating']:checked").val() });
+    }
+
+    createReview(e) {
+        e.preventDefault();
+        this.props.createReview(this.state);
     }
 
     render() {
@@ -16,6 +71,7 @@ class ProductItem extends React.Component {
         let productPrice = null;
         let productRating = null;
         let productTitle = null;
+        let productReviews = null;
         let ratingStars = (
             <div className='rating-stars'>
                 <i className="fas fa-star rs1"></i>
@@ -33,6 +89,15 @@ class ProductItem extends React.Component {
                 .join(' ');;
             productOwner = this.props.product.first_name;
             productPrice = this.props.product.price;
+            productReviews = this.props.reviews.map(review => {
+                return (
+                    <div key={review.id} className='review-post'>
+                        <h4>{review.first_name} - {review.title}</h4>
+                        <p>Rating: {review.rating} / 5</p>
+                        <p>{review.body}</p>
+                    </div>
+                );
+            });
             productTitle = this.props.product.title.toLowerCase()
                 .split(' ')
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -65,10 +130,10 @@ class ProductItem extends React.Component {
                 $('.rs5').css('color', 'gold')
             }
         }
-        
         return (
             <>
                 <div className="nav-container">
+                    <Modal />
                     <GreetingContainer />
                     <CategoryNav />
 
@@ -83,33 +148,59 @@ class ProductItem extends React.Component {
                             <p className='product-price'>${productPrice}</p>
                             <p>Free shipping</p>
 
-                            <button className='buy-now-btn'>Buy it now</button>
-                            <button className='add-cart-btn'>Add to cart</button>
+                            <button onClick={this.buyNow} className='buy-now-btn'>Buy it now</button>
+                            <input id='quantity' type="number" min='1' defaultValue='1'/>
+                            <button onClick={this.addToCart} className='add-cart-btn'>Add to cart</button>
 
                             <hr>
                             </hr>
                         </div>
                     </div>
+                    
+                    <hr>
+                    </hr>
 
-                    <footer className="footer-container">
-                        <div className='footer-nav-container'>
-                            <FooterNav />
+                    <div className='description-container'>
+                        <h3>Description</h3>
+                        <p>{productDescription}</p>
+                    </div>
+
+                    <hr></hr>
+                    
+                    <div className='review-form-container'>
+                        <div className='review-left'>
+                            <h3>Reviews</h3>
+                            {productReviews}
                         </div>
 
-                        <div className='help-currency-container'>
-                            <div>
-                                <p><i className="far fa-question-circle"></i> Need help? Visit the <a href="#" className='help'><span>help center</span></a></p>
-                            </div>
-                            <div>
-                                <button className='currency-button'><img src={window.usaFlag} /> United States | English (US) | $ (USD)</button>
-                            </div>
+                        <div className='review-right'>
+                            <h3>Submit a review</h3>
+                            <form onSubmit={this.createReview}>
+                                <div className = "star-rating">
+                                    <input type="radio" id="5-stars" name="rating" value="5" onClick={this.ratingClick} required defaultChecked/>
+                                    <label htmlFor="5-stars" className="star">&#9733;</label>
+                                    <input type="radio" id="4-stars" name="rating" value="4" onClick={this.ratingClick} />
+                                    <label htmlFor="4-stars" className="star">&#9733;</label>
+                                    <input type="radio" id="3-stars" name="rating" value="3" onClick={this.ratingClick} />
+                                    <label htmlFor="3-stars" className="star">&#9733;</label>
+                                    <input type="radio" id="2-stars" name="rating" value="2" onClick={this.ratingClick} />
+                                    <label htmlFor="2-stars" className="star">&#9733;</label>
+                                    <input type="radio" id="1-star" name="rating" value="1" onClick={this.ratingClick} />
+                                    <label htmlFor="1-star" className="star">&#9733;</label>
+                                </div>
+                                
+                                <label className='review-title'>Title: </label>
+                                <input type="text" onChange={this.handleChange('title')}/>
+                                <textarea cols="70" rows="10" 
+                                    onChange = {this.handleChange('body')} 
+                                    placeholder='Please leave a review (maximum 300 characters)'>
+                                </textarea>
+                                <input type="submit" value='Submit review' />
+                            </form>
                         </div>
+                    </div>
 
-                        <div className='footer-banner-top'></div>
-                        <div className='footer-banner-container'>
-                            <FooterBanner />
-                        </div>
-                    </footer>
+                    <Footer />
                 </div>
             </>
         );

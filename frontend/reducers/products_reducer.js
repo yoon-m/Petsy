@@ -4,11 +4,14 @@ import { RECEIVE_ALL_PRODUCTS, RECEIVE_PRODUCT } from '../actions/product_action
 const productsReducer = (state = {}, action) => {
     Object.freeze(state);
     const newState = merge({}, state);
+
     switch (action.type) {
         case RECEIVE_ALL_PRODUCTS:
             return action.products;
+
         case RECEIVE_PRODUCT:
-            return Object.assign({}, state, state[Object.keys(action.product)[0]] = action.product);
+            return action.product;
+        
         default:
             return newState;
     }

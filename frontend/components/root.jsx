@@ -6,6 +6,7 @@ import ProductIndexContainer from './products/product_index_container';
 import ProductItemContainer from './products/product_item_container';
 import CartContainer from './cart/cart_container';
 import SellContainer from './sell/sell_container';
+import { ProtectedRoute } from '../util/route_util';
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -14,8 +15,8 @@ const Root = ({ store }) => (
                 <Route path='/products/:productId' exact component={ProductItemContainer} />
                 <Route path='/' exact component={App} />
                 <Route path='/products/' exact component={ProductIndexContainer}/>
-                <Route path='/cart' exact component={CartContainer}/>
-                <Route path='/sell' exact component={SellContainer} />
+                <ProtectedRoute path='/cart' exact component={CartContainer}/>
+                <ProtectedRoute path='/sell' exact component={SellContainer} />
             </Switch>
         </HashRouter>
     </Provider>

@@ -1,12 +1,12 @@
 class Api::ProductsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
     def index
-        @products = Product.all
+        @products = Product.with_attached_pictures.all
         render :index
     end
 
     def show
-        @product = Product.find_by(id: params[:id])
+        @product = Product.with_attached_pictures.find_by(id: params[:id])
         if @product
             render :show
         end
@@ -24,6 +24,6 @@ class Api::ProductsController < ApplicationController
 
     private
     def product_params
-        params.require(:product).permit(:title, :owner_id, :price, :description)
+        params.require(:product).permit(:title, :owner_id, :price, :description, pictures: [])
     end
 end
