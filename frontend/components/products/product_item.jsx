@@ -21,14 +21,14 @@ class ProductItem extends React.Component {
     }
     
     componentDidMount() {
-        this.props.fetchProduct(this.props.match.params.productId);
-        this.props.fetchReviews(this.props.match.params.productId);
+        this.props.fetchProduct(this.props.match.params.productId)
+        .then(this.props.fetchReviews(this.props.match.params.productId));
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.productId !== prevProps.match.params.productId) {
-            this.props.fetchProduct(this.props.match.params.productId);
-            this.props.fetchReviews(this.props.match.params.productId);
+            this.props.fetchProduct(this.props.match.params.productId)
+            .then(this.props.fetchReviews(this.props.match.params.productId));
         }
     }
 
@@ -69,7 +69,7 @@ class ProductItem extends React.Component {
         let productDescription = null;
         let productOwner = null;
         let productPrice = null;
-        let productRating = null;
+        let productRating = 0;
         let productTitle = null;
         let productReviews = null;
         let ratingStars = (
@@ -89,6 +89,13 @@ class ProductItem extends React.Component {
                 .join(' ');;
             productOwner = this.props.product.first_name;
             productPrice = this.props.product.price;
+            
+            this.props.reviews.forEach(review => {
+                productRating += review.rating
+            });
+
+            productRating /= this.props.reviews.length;
+
             productReviews = this.props.reviews.map(review => {
                 return (
                     <div key={review.id} className='review-post'>
@@ -102,27 +109,27 @@ class ProductItem extends React.Component {
                 .split(' ')
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ');;
-            productRating = this.props.product.rating;
+            
             $('.rs1').css('color', 'grey')
             $('.rs2').css('color', 'grey')
             $('.rs3').css('color', 'grey')
             $('.rs4').css('color', 'grey')
             $('.rs5').css('color', 'grey')
-            if (Math.round(this.props.product.rating) === 1) {
+            if (Math.round(productRating) === 1) {
                 $('.rs1').css('color', 'gold')
-            } else if (Math.round(this.props.product.rating) === 2) {
+            } else if (Math.round(productRating) === 2) {
                 $('.rs1').css('color', 'gold')
                 $('.rs2').css('color', 'gold')
-            } else if (Math.round(this.props.product.rating) === 3) {
+            } else if (Math.round(productRating) === 3) {
                 $('.rs1').css('color', 'gold')
                 $('.rs2').css('color', 'gold')
                 $('.rs3').css('color', 'gold')
-            } else if (Math.round(this.props.product.rating) === 4) {
+            } else if (Math.round(productRating) === 4) {
                 $('.rs1').css('color', 'gold')
                 $('.rs2').css('color', 'gold')
                 $('.rs3').css('color', 'gold')
                 $('.rs4').css('color', 'gold')
-            } else if (Math.round(this.props.product.rating) === 5) {
+            } else if (Math.round(productRating) === 5) {
                 $('.rs1').css('color', 'gold')
                 $('.rs2').css('color', 'gold')
                 $('.rs3').css('color', 'gold')
@@ -130,6 +137,7 @@ class ProductItem extends React.Component {
                 $('.rs5').css('color', 'gold')
             }
         }
+        
         return (
             <>
                 <div className="nav-container">

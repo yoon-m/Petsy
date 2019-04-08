@@ -11,4 +11,8 @@ class Product < ApplicationRecord
         class_name: :CartItem
 
     has_many_attached :pictures
+
+    has_many :reviews,
+        foreign_key: :product_id,
+        class_name: :Product
 end
