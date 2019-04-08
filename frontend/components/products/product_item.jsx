@@ -93,7 +93,7 @@ class ProductItem extends React.Component {
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ');;
             productOwner = this.props.product.first_name;
-            productPrice = this.props.product.price;
+            productPrice = (this.props.product.price).toFixed(2);
             
             this.props.reviews.forEach(review => {
                 productRating += review.rating
