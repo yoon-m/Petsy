@@ -37,7 +37,7 @@ class Cart extends React.Component {
 
     render() {
         let cart_items = [];
-        let cart_count = 0;
+        let cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>);
         let cart_total = null;
 
         if (this.props.cart) {
