@@ -16,20 +16,20 @@ c = User.create(first_name: 'Linda', email: 'linda@gmail.com', password: 'starwa
 d = User.create(first_name: 'Nick', email: 'nick@gmail.com', password: 'starwars')
 e = User.create(first_name: 'Rong', email: 'rong@gmail.com', password: 'starwars')
 
-f = Product.create(title: 'snake bandana', owner_id: a.id, price: 2099.99, 
+f = Product.create(title: 'Snake Bandana', owner_id: a.id, price: 2099.99, 
     description: "Add a retro pop of color to any of your casual outfits with this bandana. 
     With the classic paisley pattern, this set of two bandanas lets you decide if 
     you want to go with red or blue, so you can be sure that you get the ideal look each 
     time. Size: One Size. Material: Cotton ")
-g = Product.create(title: 'horse hat', owner_id: b.id, price: 99.99, 
+g = Product.create(title: 'Horse Hat', owner_id: b.id, price: 99.99, 
     description: 'A woven wide brim fedora with a faux leather buckle strap. 
     Content + Care- Shell 1: 100% wool- Shell 2: 100% polyurethane- Other contents: 
     100% polyvinyl chlorideSize + Fit- Circumference: 21.5%22- Brim: 3.5%22')
-h = Product.create(title: 'panda beanie', owner_id: c.id, price: 9.99, 
+h = Product.create(title: 'Panda Beanie', owner_id: c.id, price: 9.99, 
     description: 'This stocking hat is made of 100% acrylic with a logo label on the front. 
     This classic beanie provides comfort and warmth so you can guarantee to keep the 
     cold out during any winter adventure.')
-i = Product.create(title: 'cat necklace', owner_id: d.id, price: 3999.99, 
+i = Product.create(title: 'Cat Necklace', owner_id: d.id, price: 3999.99, 
     description: 'This breathtaking pendant features a magnificent 8 mm freshwater 
     pearl...perfectly round, irresistibly luminous and totally breathtaking. Suspended 
     within gleaming 14kt gold-plated ribbons that gracefully embrace the pearl, 
@@ -37,7 +37,7 @@ i = Product.create(title: 'cat necklace', owner_id: d.id, price: 3999.99,
     piece, six dazzling diamonds lend a glittering light for the perfect, dramatic 
     finishing touch. A matching 18", 14kt gold-plated necklace provides the ideal showcase 
     for this stylish and romantic design.')
-j = Product.create(title: 'bird jacket', owner_id: a.id, price: 199.99, 
+j = Product.create(title: 'Bird Jacket', owner_id: a.id, price: 199.99, 
     description: "A walking and hiking classic updated for the new season, The Resolve 
     2 Jacket is your ultimate no-fuss protective layer. Fully waterproof and seam sealed the 
     Resolve 2 is made from DryVent fabric which repel rain and allows heat vapour to pass 

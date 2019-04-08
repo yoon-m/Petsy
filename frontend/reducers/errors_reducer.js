@@ -5,5 +5,4 @@ import products from './product_errors_reducer';
 export default combineReducers({
     session,
     products,
-    
 });

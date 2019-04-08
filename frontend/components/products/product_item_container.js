@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductItem from './product_item';
-import { fetchProduct } from '../../actions/product_actions';
+import { fetchProduct, clearErrors } from '../../actions/product_actions';
 import { fetchCart, addToCart } from '../../actions/cart_actions';
 import { fetchReviews, createReview } from '../../actions/review_actions';
 
@@ -9,6 +9,7 @@ const msp = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         product: state.entities.products[ownProps.match.params.productId],
         reviews: Object.values(state.entities.reviews),
+        errors: state.errors.session
     };
 };
 
@@ -18,6 +19,7 @@ const mdp = dispatch => ({
     fetchCart: id => dispatch(fetchCart(id)),
     fetchReviews: productId => dispatch(fetchReviews(productId)),
     createReview: review => dispatch(createReview(review)),
+    clearErrors: () => dispatch(clearErrors()),
 });
 
 export default connect(msp, mdp)(ProductItem);

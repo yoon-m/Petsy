@@ -19,3 +19,11 @@ export const createProduct = product => (
         data: { product }
     })
 );
+
+export const searchProducts = searchValue => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/products',
+        data: { searchValue }
+    })
+);

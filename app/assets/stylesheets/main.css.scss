@@ -1,7 +1,7 @@
 // MAIN LOGGED OUT
-.main-auth-container {
-  height: 120vh; 
-}
+// .main-auth-container {
+//   height: 120vh; 
+// }
 
 .main-auth-header-container h2 {
   text-align: center;
@@ -11,13 +11,14 @@
 }
 
 .main-auth-header-container {
-  width: 40%;
+  width: 35%;
   margin: 0 auto;
 }
 
 .main-flex-container {
   display: flex;
   justify-content: space-between;
+  height: 44vh;
 }
 
 .main-flex-container a {
@@ -32,12 +33,13 @@
   width: 40%;
 }
 
-.main-auth-left-container {
-  width: 39%;
-}
-
 .main-auth-left {
   display: flex;
+  height: 100%;
+}
+
+.main-auth-left img {
+  width: 55%;
 }
 
 .main-right-top {
@@ -73,10 +75,15 @@
 .main-left-yellow {
   background-color: rgb(250, 210, 106);
   text-align: center;
+  width: 55%;
+}
+
+.main-auth-left img {
+  width: 100%;
 }
 
 .main-left-yellow h3 {
-  padding: 37% 5% 0 5%;
+  padding: 34% 5% 0 5%;
   font-family: "Guardian-EgypTT",serif;
   font-size: 30px;
 }
@@ -88,11 +95,11 @@
 }
 
 .main-auth-left-container {
-  width: 65%;
+  width: 59vw;
 }
 
 .main-auth-right-container {
-  width: 33%;
+  width: 30vw;
 }
 
 .check-container {
@@ -150,22 +157,14 @@
 }
 
 .p-left-btn, .p-right-btn {
-  position: relative;
+  // position: relative;
   font-size: 25px;
   font-weight: 100;
   border: 1px solid rgb(220, 220, 220);
   border-radius: 50%;
-  padding: 0.2% 1.1% 0.5% 1.1%;
-  top: 23%;
   color: rgb(101, 101, 101);
-}
-
-.p-left-btn {
-  right: -67%;
-}
-
-.p-right-btn {
-  right: -68%;
+  padding: 10% 15%;
+  margin-left: 0.5vw;
 }
 
 .p-left-btn:hover, .p-right-btn:hover {
@@ -198,3 +197,14 @@
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
+
+.personalized-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personalized-left {
+  width: 80%;
+}
+
+  

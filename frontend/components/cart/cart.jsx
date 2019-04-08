@@ -37,7 +37,7 @@ class Cart extends React.Component {
 
     render() {
         let cart_items = [];
-        let cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>);
+        let cart_count = null;
         let cart_total = null;
 
         if (this.props.cart) {
@@ -46,15 +46,15 @@ class Cart extends React.Component {
                 cart_total += (item.price * item.quantity);
                 cart_count += item.quantity;
             });
-
             if (cart_count === 1) {
                 cart_count = (<h3 className='cart-count'>{cart_count} item in your cart</h3>)
-            } else if (cart_count === null) {
-
+            } else if (cart_count === 0) {
                 cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>)
             } else {
                 cart_count = (<h3 className='cart-count'>{cart_count} items in your cart</h3>)
             }
+        } else {
+            cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>)
         }
 
         return(
@@ -76,7 +76,7 @@ class Cart extends React.Component {
                                                 <h3>{item.title}</h3>
                                             </a>
                                             <input className={`${item.id}-quantity`} type="number" min='1' defaultValue={item.quantity} />
-                                            <button onClick={() => this.removeCartItem(item.id)}>Remove from cart</button>
+                                            <button onClick={() => this.removeCartItem(item.id)}>Remove item</button>
                                         </div>
                                     );
                                 })}

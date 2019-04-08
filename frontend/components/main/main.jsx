@@ -32,11 +32,18 @@ class Main extends React.Component {
             return (
                 <>
                     <div className='personalized-container'>
-                        <h3>Our picks for {this.props.currentUser.first_name}</h3>
-                        <a href='/#/products'>See more</a>
+                        <div className='personalized-top'>
+                            <div className='personalized-left'>
+                                <h3>Our picks for {this.props.currentUser.first_name}</h3>
+                                <a href='/#/products'>See more</a>
+                            </div>
+
+                            <div className='personalized-right'>
+                                <span className='p-left-btn' onClick={this.handleL}>{`<`}</span>
+                                <span className='p-right-btn' onClick={this.handleR}>{`>`}</span>
+                            </div>
+                        </div>
                         
-                        <span className='p-left-btn' onClick={this.handleL}>{`<`}</span>
-                        <span className='p-right-btn' onClick={this.handleR}>{`>`}</span>
 
                         <div className='slide-container'>
                             <div className='personalized-item-container pi1 pi-visible'>

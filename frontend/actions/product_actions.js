@@ -3,6 +3,7 @@ import * as ProductAPIUtil from '../util/product_util';
 export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCT_ERRORS = 'RECEIVE_PRODUCT_ERRORS';
+export const CLEAR_PRODUCT_ERRORS = 'CLEAR_PRODUCT_ERRORS';
 
 export const receiveProducts = products => {
     return {
@@ -23,6 +24,10 @@ export const receiveErrors = errors => ({
     errors
 });
 
+export const clearErrors = () => ({
+    type: CLEAR_PRODUCT_ERRORS,
+});
+
 export const fetchProducts = () => dispatch => {
     return ProductAPIUtil.fetchAllProducts().then(products => dispatch(receiveProducts(products)));
 };
@@ -34,4 +39,8 @@ export const fetchProduct = id => dispatch => {
 export const createProduct = product => dispatch => {
     return ProductAPIUtil.createProduct(product).then(product => dispatch(receiveProduct(product)))
         .fail(err => dispatch(receiveErrors(err.responseJSON)));
+};
+
+export const searchProducts = searchValue => dispatch => {
+    return ProductAPIUtil.searchProducts(searchValue).then(products => dispatch(receiveProducts(products)));
 };

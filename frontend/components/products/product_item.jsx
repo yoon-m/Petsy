@@ -13,6 +13,7 @@ class ProductItem extends React.Component {
             body: '',
             rating: 5,
             product_id: 0,
+            first_name: this.props.currentUser.first_name
         };
         this.addToCart = this.addToCart.bind(this);
         this.buyNow = this.buyNow.bind(this);
@@ -22,14 +23,18 @@ class ProductItem extends React.Component {
     
     componentDidMount() {
         this.props.fetchProduct(this.props.match.params.productId)
-        .then(this.props.fetchReviews(this.props.match.params.productId));
+            .then(this.props.fetchReviews(this.props.match.params.productId));
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.productId !== prevProps.match.params.productId) {
             this.props.fetchProduct(this.props.match.params.productId)
-            .then(this.props.fetchReviews(this.props.match.params.productId));
+                .then(this.props.fetchReviews(this.props.match.params.productId));
         }
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
     }
 
     addToCart(e) {
@@ -62,7 +67,7 @@ class ProductItem extends React.Component {
 
     createReview(e) {
         e.preventDefault();
-        this.props.createReview(this.state);
+        this.props.createReview(this.state).then(location.reload());
     }
 
     render() {
@@ -95,7 +100,7 @@ class ProductItem extends React.Component {
             });
 
             productRating /= this.props.reviews.length;
-
+            
             productReviews = this.props.reviews.map(review => {
                 return (
                     <div key={review.id} className='review-post'>
@@ -105,6 +110,7 @@ class ProductItem extends React.Component {
                     </div>
                 );
             });
+            
             productTitle = this.props.product.title.toLowerCase()
                 .split(' ')
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -138,6 +144,14 @@ class ProductItem extends React.Component {
             }
         }
         
+        let errors = this.props.errors.map((error, idx) => {
+            if (error === 'Product has already been taken') {
+                return <li key={idx} className='product-errors'>{"You've already reviewed this item."}</li>
+            } else if (!error.includes('exist')) {
+                return <li key={idx} className='product-errors'>{error}</li>
+            }
+        })
+
         return (
             <>
                 <div className="nav-container">
@@ -183,8 +197,9 @@ class ProductItem extends React.Component {
 
                         <div className='review-right'>
                             <h3>Submit a review</h3>
+                            {errors}
                             <form onSubmit={this.createReview}>
-                                <div className = "star-rating">
+                                Rating:<div className = "star-rating">
                                     <input type="radio" id="5-stars" name="rating" value="5" onClick={this.ratingClick} required defaultChecked/>
                                     <label htmlFor="5-stars" className="star">&#9733;</label>
                                     <input type="radio" id="4-stars" name="rating" value="4" onClick={this.ratingClick} />

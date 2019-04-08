@@ -10,9 +10,10 @@ const reviewsReducer = (state = {}, action) => {
 
         case RECEIVE_REVIEW:
             let review = Object.values(action.review)[0];
-            return Object.assign({}, newState, newState[review.id] = review);
+            newState[review.id] = review;
+            return newState;
 
-        case REMOVE_REVIEW:
+        // case REMOVE_REVIEW:
 
         default:
             return newState;

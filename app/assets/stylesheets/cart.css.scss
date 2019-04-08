@@ -5,7 +5,8 @@
 }
 
 .cart-container input[type=number] {
-  width: 60%;
+  width: 10%;
+  border-radius: 5px;
 }
 
 .cart-item-container {
@@ -39,4 +40,35 @@
   top: 0;
   border-left: 1px solid rgb(99, 98, 98);
   left: 60%;
+}
+
+.cart-item-right button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 3% 8%;
+  margin-top: 1%;
+}
+
+.cart-item-left button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 1%;
+}
+
+.cart-item-left a {
+  text-decoration: none;
+  color: black;
+
+}
+
+.cart-item-left a:hover {
+  text-decoration: underline;
+}
+
+.cart-item-container button:hover {
+  background-color: rgba(0, 0, 0, 0.81);
 }
