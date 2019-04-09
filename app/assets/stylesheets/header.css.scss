@@ -332,3 +332,31 @@
   width: 30%;
   border-right: 1px solid black;
 }
+
+// SEARCH
+.search-result-container {
+  position: absolute;
+  background-color: white;
+  width: 26vw;
+  top: 8%;
+  left: 11%;
+  z-index: 99999;
+}
+
+.search-results a {
+  text-decoration: none;
+  color: black;
+}
+
+.search-results {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.search-result {
+  padding: 2%;
+}
+
+.no-search-results {
+  display: none;
+}

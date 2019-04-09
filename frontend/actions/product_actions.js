@@ -4,6 +4,7 @@ export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCT_ERRORS = 'RECEIVE_PRODUCT_ERRORS';
 export const CLEAR_PRODUCT_ERRORS = 'CLEAR_PRODUCT_ERRORS';
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 
 export const receiveProducts = products => {
     return {
@@ -28,6 +29,11 @@ export const clearErrors = () => ({
     type: CLEAR_PRODUCT_ERRORS,
 });
 
+export const search = searchResults => ({
+    type: RECEIVE_SEARCH_RESULTS,
+    searchResults
+});
+
 export const fetchProducts = () => dispatch => {
     return ProductAPIUtil.fetchAllProducts().then(products => dispatch(receiveProducts(products)));
 };
@@ -42,5 +48,5 @@ export const createProduct = product => dispatch => {
 };
 
 export const searchProducts = searchValue => dispatch => {
-    return ProductAPIUtil.searchProducts(searchValue).then(products => dispatch(receiveProducts(products)));
+    return ProductAPIUtil.searchProducts(searchValue).then(products => dispatch(search(products)));
 };

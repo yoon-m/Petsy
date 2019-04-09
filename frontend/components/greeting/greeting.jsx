@@ -4,21 +4,47 @@ import { Link } from 'react-router-dom';
 class Greeting extends React.Component {
     constructor(props) {
         super(props);
-        
+        this.state = {
+            searchValue: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleDropdown() {
         $("#panel").slideToggle(100);
     }
-    
-    // handleChange() {
-    //     this.setState({title: });
-    // }
+
+    handleChange(e) {
+        this.setState({ searchValue: e.target.value }, () => {
+            this.props.searchProducts(this.state.searchValue);
+        });
+    }
 
     render() {
         let protectedButtons = null;
         let authButtons = null;
         let borders = null;
+        let searchBox = null;
+        let searchObjs = null;
+
+        if (this.props.searchResults) {
+            if (this.state.searchValue === '') {
+                searchBox = (
+                    <div className='no-search-results'></div>
+                );
+            } else {
+                 searchObjs = this.props.searchResults.slice(0, 5);
+                 searchBox = (
+                    <div className='search-results'>
+                        {searchObjs.map(result => {
+                            return (
+                                <a href={`/#/products/${result.id}`}><p className='search-result' key={result.id}>{result.title}</p></a>
+                            )
+                        })}
+                     </div>
+                 );
+            }
+        }
 
         if (this.props.currentUser) {
             borders = (
@@ -92,6 +118,10 @@ class Greeting extends React.Component {
 
         return (
             <nav className="nav" >
+                <div className='search-result-container'>
+                    {searchBox}
+                </div>
+
                 <div className="nav-left">
                     <a href="/"><img src={window.navLogo} className='navLogo' /></a>
                     
@@ -99,7 +129,8 @@ class Greeting extends React.Component {
                         type="text" 
                         placeholder="Search for items or shops"
                         className="search-text"
-                        // onChange={this.handleChange}
+                        onChange={this.handleChange}
+                        value={this.state.searchValue}
                     />
     
                     <button

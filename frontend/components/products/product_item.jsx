@@ -214,7 +214,7 @@ class ProductItem extends React.Component {
                                 
                                 <label className='review-title'>Title: </label>
                                 <input type="text" onChange={this.handleChange('title')}/>
-                                <textarea cols="70" rows="10" 
+                                <textarea cols="55" rows="10" 
                                     onChange = {this.handleChange('body')} 
                                     placeholder='Please leave a review (maximum 300 characters)'>
                                 </textarea>

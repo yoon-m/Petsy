@@ -1,7 +1,11 @@
 class Api::ProductsController < ApplicationController
-    # skip_before_action :verify_authenticity_token
     def index
-        @products = Product.with_attached_pictures.all
+        if (!params[:searchValue] || params[:searchValue] === '')
+            @products = Product.with_attached_pictures.all
+        else
+            @products = Product.with_attached_pictures.where("title ILIKE ?", "#{params[:searchValue]}%")
+        end
+        
         render :index
     end
 
