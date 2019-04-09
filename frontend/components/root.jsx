@@ -7,6 +7,7 @@ import ProductItemContainer from './products/product_item_container';
 import CartContainer from './cart/cart_container';
 import SellContainer from './sell/sell_container';
 import { ProtectedRoute } from '../util/route_util';
+import SearchPageContainer from './search_page/search_page_container';
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -15,6 +16,7 @@ const Root = ({ store }) => (
                 <Route path='/products/:productId' exact component={ProductItemContainer} />
                 <Route path='/' exact component={App} />
                 <Route path='/products/' exact component={ProductIndexContainer}/>
+                <Route path='/search=:searchValue' component={SearchPageContainer} />
                 <ProtectedRoute path='/cart' exact component={CartContainer}/>
                 <ProtectedRoute path='/sell' exact component={SellContainer} />
             </Switch>

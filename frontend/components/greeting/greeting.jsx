@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Greeting extends React.Component {
             searchValue: ''
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleEnter = this.handleEnter.bind(this);
     }
 
     handleDropdown() {
@@ -18,6 +20,12 @@ class Greeting extends React.Component {
         this.setState({ searchValue: e.target.value }, () => {
             this.props.searchProducts(this.state.searchValue);
         });
+    }
+
+    handleEnter(e) {
+        if (e.keyCode == 13) {
+            this.props.history.push(`/search=${e.target.value}`);
+        }
     }
 
     render() {
@@ -131,6 +139,7 @@ class Greeting extends React.Component {
                         className="search-text"
                         onChange={this.handleChange}
                         value={this.state.searchValue}
+                        onKeyUp={this.handleEnter}
                     />
     
                     <button
@@ -156,4 +165,4 @@ class Greeting extends React.Component {
     }
 };
 
-export default Greeting;
+export default withRouter(Greeting);
