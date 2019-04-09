@@ -13,7 +13,7 @@ class Latest extends React.Component {
                     <div className='latest-item-container'>
 
                         <div className='latest-item'><a href='#' className='latest-links'>
-                            <img src={window.latest2} />
+                            <img src='https://s3.amazonaws.com/aa-petsy-public/latest2.jpg' />
                             <div className='latest-item-text'>
                                 <p>EDITORS' PICKS</p>
                                 <h3>Design ideas and inspiration</h3>
@@ -21,7 +21,7 @@ class Latest extends React.Component {
                         </div>
 
                         <div className='latest-item'><a href='#' className='latest-links'>
-                            <img src={window.latest1} />
+                            <img src='https://s3.amazonaws.com/aa-petsy-public/latest3.jpg' />
                             <div className='latest-item-text'>
                                 <p>EDITORS' PICKS</p>
                                 <h3>Jewelery, handbags and accessories</h3>

@@ -88,10 +88,7 @@ class ProductItem extends React.Component {
         );
 
         if (this.props.product) {
-            productDescription = this.props.product.description.toLowerCase()
-                .split(' ')
-                .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                .join(' ');;
+            productDescription = this.props.product.description;
             productOwner = this.props.product.first_name;
             productPrice = (this.props.product.price).toFixed(2);
             

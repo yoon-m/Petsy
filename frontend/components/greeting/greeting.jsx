@@ -10,6 +10,8 @@ class Greeting extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleEnter = this.handleEnter.bind(this);
+        this.leaveFocus = this.leaveFocus.bind(this);
+        this.searchBox = null;
     }
 
     handleDropdown() {
@@ -28,29 +30,31 @@ class Greeting extends React.Component {
         }
     }
 
+    leaveFocus() {
+        this.setState({ searchValue: '' });
+    }
+
     render() {
         let protectedButtons = null;
         let authButtons = null;
         let borders = null;
-        let searchBox = null;
-        let searchObjs = null;
 
         if (this.props.searchResults) {
             if (this.state.searchValue === '') {
-                searchBox = (
+                this.searchBox = (
                     <div className='no-search-results'></div>
                 );
             } else {
-                 searchObjs = this.props.searchResults.slice(0, 5);
-                 searchBox = (
+                let searchObjs = this.props.searchResults.slice(0, 5);
+                this.searchBox = (
                     <div className='search-results'>
                         {searchObjs.map(result => {
                             return (
-                                <a href={`/#/products/${result.id}`}><p className='search-result' key={result.id}>{result.title}</p></a>
+                                <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' >{result.title}</p></a>
                             )
                         })}
-                     </div>
-                 );
+                    </div>
+                );
             }
         }
 
@@ -72,13 +76,13 @@ class Greeting extends React.Component {
                     <div id='flip'>
                         <div className='nav-icons'>
                             <div className='avatar-dropdown' onClick={this.handleDropdown}>
-                                <img src={window.defaultAvatar} className='avatar avatar-hover' />
+                                <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar avatar-hover' />
                                 <p>You <i className="fa fa-caret-down"></i></p>
                             </div>
 
                             <div className="dropdown-content" id='panel'>
                                 <Link to='/profile'><div className='dropdown-content-top'>
-                                    <img src={window.defaultAvatar} className='avatar' />
+                                    <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar' />
                                     {this.props.currentUser.first_name}
                                     <br />
                                     <button>View Profile</button>
@@ -127,11 +131,11 @@ class Greeting extends React.Component {
         return (
             <nav className="nav" >
                 <div className='search-result-container'>
-                    {searchBox}
+                    {this.searchBox}
                 </div>
 
                 <div className="nav-left">
-                    <a href="/"><img src={window.navLogo} className='navLogo' /></a>
+                    <a href="/"><img src={'https://s3.amazonaws.com/aa-petsy-public/petsyWhiteSquareCropped.png'} className='navLogo' /></a>
                     
                     <input 
                         type="text" 
@@ -140,6 +144,7 @@ class Greeting extends React.Component {
                         onChange={this.handleChange}
                         value={this.state.searchValue}
                         onKeyUp={this.handleEnter}
+                        onBlur={this.leaveFocus}
                     />
     
                     <button

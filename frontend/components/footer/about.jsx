@@ -4,10 +4,6 @@ class About extends React.Component {
     render() {
         return (
             <>
-                {/* <div className='about'>
-                    <img src={window.aboutPetsy} />
-                </div> */}
-
                 <div className='about'>
                     <div className='about-header'>
                         <h2>What is Petsy?</h2>
@@ -39,15 +35,15 @@ class About extends React.Component {
 
                     <div className='about-footer'>
                         <div className='about-blue'>
-                            <img src={window.aboutBlue} />
+                            <img src={'https://s3.amazonaws.com/aa-petsy-public/aboutPetsyBlue.jpg'} />
                         </div>
 
                         <div className='about-orange'>
-                            <img src={window.aboutOrange} />
+                            <img src={'https://s3.amazonaws.com/aa-petsy-public/aboutPetsyOrange.jpg'} />
                         </div>
 
                         <div className='about-yellow'>
-                            <img src={window.aboutYellow} />
+                            <img src={'https://s3.amazonaws.com/aa-petsy-public/aboutPetsyYellow.jpg'} />
                         </div>
 
                         <h3>Have a question? Well, we've got some answers.</h3>

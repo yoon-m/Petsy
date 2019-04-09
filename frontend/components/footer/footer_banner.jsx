@@ -5,7 +5,7 @@ class FooterBanner extends React.Component {
         return (
             <>
                 <div className='footer-banner-left'>
-                    <a href="/"><img src={window.navLogo} className='navLogo' /></a>
+                    <a href="/"><img src={'https://s3.amazonaws.com/aa-petsy-public/petsyWhiteSquareCropped.png'} className='navLogo' /></a>
                     <p>We make it easy to find your thing.</p>
                 </div>
                 

@@ -48,42 +48,42 @@ class Main extends React.Component {
                         <div className='slide-container'>
                             <div className='personalized-item-container pi1 pi-visible'>
                                 <div className='gift1 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized1.jpg' />
                                     <div className='gift-text'>
                                         <p>Women's Fashion</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift2 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized2.jpg' />
                                     <div className='gift-text'>
                                         <p>Personalized and custom jewelery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift3 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized3.jpg' />
                                     <div className='gift-text'>
                                         <p>Home gallery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift4 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized4.jpg' />
                                     <div className='gift-text'>
                                         <p>Petsy weddings</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift5 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized5.jpeg' />
                                     <div className='gift-text'>
                                         <p>DIY craft projects</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift6 gift'><a href='/#/products'>
-                                    <img src={window.personalized1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized6.jpg' />
                                     <div className='gift-text'>
                                         <p>One-of-a-kind gift ideas</p>
                                     </div></a>
@@ -92,42 +92,42 @@ class Main extends React.Component {
 
                             <div className='personalized-item-container pi2'>
                                 <div className='gift1 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular1.jpg' />
                                     <div className='gift-text'>
                                         <p>Women's Fashion</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift2 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular3.jpeg' />
                                     <div className='gift-text'>
                                         <p>Personalized and custom jewelery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift3 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular4.jpeg' />
                                     <div className='gift-text'>
                                         <p>Home gallery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift4 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular5.jpeg' />
                                     <div className='gift-text'>
                                         <p>Petsy weddings</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift5 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular6.jpg' />
                                     <div className='gift-text'>
                                         <p>DIY craft projects</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift6 gift'><a href='/#/products'>
-                                    <img src={window.personalized2} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular2.jpg' />
                                     <div className='gift-text'>
                                         <p>One-of-a-kind gift ideas</p>
                                     </div></a>
@@ -136,35 +136,35 @@ class Main extends React.Component {
 
                             <div className='personalized-item-container pi3'>
                                 <div className='gift1 gift'><a href='/#/products'>
-                                    <img src={window.personalized3} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized7.jpg' />
                                     <div className='gift-text'>
                                         <p>Women's Fashion</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift2 gift'><a href='/#/products'>
-                                    <img src={window.personalized3} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized8.jpg' />
                                     <div className='gift-text'>
                                         <p>Personalized and custom jewelery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift3 gift'><a href='/#/products'>
-                                    <img src={window.personalized3} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized9.jpg' />
                                     <div className='gift-text'>
                                         <p>Home gallery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift4 gift'><a href='/#/products'>
-                                    <img src={window.personalized3} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized10.jpg' />
                                     <div className='gift-text'>
                                         <p>Petsy weddings</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift5 gift'><a href='/#/products'>
-                                    <img src={window.personalized3} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/personalized11.jpg' />
                                     <div className='gift-text'>
                                         <p>DIY craft projects</p>
                                     </div></a>
@@ -193,7 +193,7 @@ class Main extends React.Component {
                                         <h3>Let imagination light up your life.</h3>
                                         <p>Shop Home & Living ></p>
                                     </div>
-                                    <img src={window.mainLeft} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/main-left.jpg' />
                                 </div></a>
                             </div>
 
@@ -234,42 +234,42 @@ class Main extends React.Component {
                             <h3>Popular right now</h3>
                             <div className='popular-item-container'>
                                 <div className='gift1 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular1.jpg' />
                                     <div className='gift-text'>
                                         <p>Women's Fashion</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift2 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular2.jpg' />
                                     <div className='gift-text'>
                                         <p>Personalized and custom jewelery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift3 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular3.jpeg' />
                                     <div className='gift-text'>
                                         <p>Home gallery</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift4 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular4.jpeg' />
                                     <div className='gift-text'>
                                         <p>Petsy weddings</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift5 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular5.jpeg' />
                                     <div className='gift-text'>
                                         <p>DIY craft projects</p>
                                     </div></a>
                                 </div>
 
                                 <div className='gift6 gift'><a href='/#/products'>
-                                    <img src={window.popular1} />
+                                    <img src='https://s3.amazonaws.com/aa-petsy-public/popular6.jpg' />
                                     <div className='gift-text'>
                                         <p>One-of-a-kind gift ideas</p>
                                     </div></a>

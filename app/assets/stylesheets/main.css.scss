@@ -43,19 +43,21 @@
 }
 
 .main-right-top {
-  background-image: image_url('mainRight.jpg');
+  background-image: url('https://s3.amazonaws.com/aa-petsy-public/mainRight.jpeg');
   height: 70%;
   background-size: cover;
   background-position: 0 50%;
 }
 
 .main-right-top h4{
-  padding: 4% 50% 2% 4%;
+  padding: 4% 4% 2% 4%;
   font-size: 20px;
   font-weight: 600;
+  text-align: right;
 }
 
 .main-right-top p {
+  text-align: right;
   padding: 0 4%;
   font-weight: 600;
 }
@@ -207,4 +209,6 @@
   width: 80%;
 }
 
-  
+.personalized-right {
+  width: 10%;
+}
