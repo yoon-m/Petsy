@@ -11,7 +11,9 @@ class Greeting extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleEnter = this.handleEnter.bind(this);
         this.leaveFocus = this.leaveFocus.bind(this);
+        this.enterFocus = this.enterFocus.bind(this);
         this.searchBox = null;
+        this.searchObs = [];
     }
 
     handleDropdown() {
@@ -30,8 +32,12 @@ class Greeting extends React.Component {
         }
     }
 
-    leaveFocus() {
-        this.setState({ searchValue: '' });
+    leaveFocus(e) {
+        $('.search-result-container').css('display', 'none');
+    }
+
+    enterFocus(e) {
+        $('.search-result-container').css('display', 'block');
     }
 
     render() {
@@ -45,10 +51,10 @@ class Greeting extends React.Component {
                     <div className='no-search-results'></div>
                 );
             } else {
-                let searchObjs = this.props.searchResults.slice(0, 5);
+                this.searchObs = this.props.searchResults.slice(0, 5);
                 this.searchBox = (
                     <div className='search-results'>
-                        {searchObjs.map(result => {
+                        {this.searchObs.map(result => {
                             return (
                                 <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' >{result.title}</p></a>
                             )
@@ -145,6 +151,7 @@ class Greeting extends React.Component {
                         value={this.state.searchValue}
                         onKeyUp={this.handleEnter}
                         onBlur={this.leaveFocus}
+                        onFocus={this.enterFocus}
                     />
     
                     <button

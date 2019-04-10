@@ -1,0 +1,56 @@
+.product-index-container ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    width: 35%;
+    height: 30vh;
+    border: 1px solid grey;
+}
+
+.product-index-container a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+// CAROUSEL
+.ici-arrow {
+    position: absolute;
+    font-size: 20px;
+    background-color: rgba(143, 142, 142, 0.651);
+    padding: 5%;
+    top: 40%;
+}
+
+.ici-right {
+    right: 0.3%;
+}
+
+.index-item-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.index-item-container {
+    width: 18%;
+    height: 30vh;
+    margin-bottom: 5%;
+    position: relative;
+}
+
+.index-item-container h3 {
+    text-align: center;
+}
+
+.nav-container h1 {
+    text-align: center;
+    font-family: "Guardian-EgypTT",serif;
+    margin: 2vh 0;
+}
+
+.ici-arrow:hover {
+    cursor: pointer;
+}

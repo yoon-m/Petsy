@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 import Modal from '../modal/modal';
+import ProductIndexItem from './product_index_item';
 
 class ProductIndex extends React.Component {
     constructor(props) {
@@ -15,6 +16,14 @@ class ProductIndex extends React.Component {
     }
 
     render() {
+        let products = null;
+
+        if (this.props.products) {
+            products = Object.values(this.props.products).map(product => {
+                return (<ProductIndexItem product={product} key={product.id} />);
+            });
+        }
+
         return(
             <>
                 <div className="nav-container">
@@ -22,18 +31,25 @@ class ProductIndex extends React.Component {
                     <GreetingContainer />
                     <CategoryNav />
 
-                    <h1>Product Index</h1>
-                    <ul>
-                        {Object.values(this.props.products).map((product, idx) => {
-                            return (
-                                <div key={idx} className='product-item'>
-                                    <Link to={`products/${product.id}`}>
-                                        <li key={product.id}>{product.title}</li>
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </ul>
+                    <h1>All Products</h1>
+                    <div className='product-index-container'>
+                        
+                        <ul>
+                            {products}
+                            {/* {Object.values(this.props.products).map((product, idx) => {
+                                return (
+                                    <div key={idx} className='product-item'>
+                                        
+                                        <Link to={`products/${product.id}`}>
+                                            <li key={product.id}>{product.title}</li>
+                                        </Link>
+                                    </div>
+                                );
+                            })} */}
+                            
+                        </ul>
+
+                    </div>
 
                     <Footer />
                 </div>

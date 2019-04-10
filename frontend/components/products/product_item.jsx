@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 import Modal from '../modal/modal';
+import CarouselItem from './carousel_item';
 
 class ProductItem extends React.Component {
     constructor(props) {
@@ -13,12 +14,14 @@ class ProductItem extends React.Component {
             body: '',
             rating: 5,
             product_id: 0,
-            first_name: this.props.currentUser.first_name
+            img_pos: 0,
         };
         this.addToCart = this.addToCart.bind(this);
         this.buyNow = this.buyNow.bind(this);
         this.createReview = this.createReview.bind(this);
         this.ratingClick = this.ratingClick.bind(this);
+        this.prevImg = this.prevImg.bind(this);
+        this.nextImg = this.nextImg.bind(this);
     }
     
     componentDidMount() {
@@ -67,7 +70,21 @@ class ProductItem extends React.Component {
 
     createReview(e) {
         e.preventDefault();
-        this.props.createReview(this.state).then(location.reload());
+        if (this.props.currentUser) {
+            this.props.createReview(this.state).then(location.reload());
+        } else {
+            this.props.history.push('/');
+        }
+    }
+
+    prevImg() {
+        let newPos = (((this.state.img_pos - 1) % 4) + 4) % 4;
+        this.setState({ img_pos: newPos });
+    }
+
+    nextImg() {
+        let newPos = (((this.state.img_pos + 1) % 4) + 4) % 4;
+        this.setState({ img_pos: newPos });
     }
 
     render() {
@@ -77,6 +94,7 @@ class ProductItem extends React.Component {
         let productRating = 0;
         let productTitle = null;
         let productReviews = null;
+        let productPics = null;
         let ratingStars = (
             <div className='rating-stars'>
                 <i className="fas fa-star rs1"></i>
@@ -113,6 +131,9 @@ class ProductItem extends React.Component {
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ');;
             
+
+            productPics = <CarouselItem url={this.props.product.photoUrls[this.state.img_pos]} />
+
             $('.rs1').css('color', 'grey')
             $('.rs2').css('color', 'grey')
             $('.rs3').css('color', 'grey')
@@ -155,10 +176,12 @@ class ProductItem extends React.Component {
                     <Modal />
                     <GreetingContainer />
                     <CategoryNav />
-
+                    
                     <div className='show-container'>
-                        <div className='show-left'>
-                            IMAGE CAROUSEL
+                        <div className='ci-container'>
+                            <span className='ci-left ci-arrow' onClick={this.prevImg}>{'<'}</span>
+                                {productPics}
+                            <span className='ci-right ci-arrow' onClick={this.nextImg}>{'>'}</span>
                         </div>
 
                         <div className='show-right'>
@@ -210,10 +233,12 @@ class ProductItem extends React.Component {
                                 </div>
                                 
                                 <label className='review-title'>Title: </label>
-                                <input type="text" onChange={this.handleChange('title')}/>
+                                <input type="text" onChange={this.handleChange('title')} required/>
                                 <textarea cols="55" rows="10" 
                                     onChange = {this.handleChange('body')} 
-                                    placeholder='Please leave a review (maximum 300 characters)'>
+                                    placeholder='Please leave a review (maximum 300 characters)' 
+                                    required 
+                                >
                                 </textarea>
                                 <input type="submit" value='Submit review' />
                             </form>

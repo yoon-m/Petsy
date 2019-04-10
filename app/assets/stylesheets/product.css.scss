@@ -1,6 +1,7 @@
 // PRODUCT ITEM
 .show-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .show-left {
@@ -11,7 +12,7 @@
 }
 
 .show-right {
-  width: 30%;
+  width: 35%;
   padding: 2%;
 }
 
