@@ -76,8 +76,12 @@
 
 .main-left-yellow {
   background-color: rgb(250, 210, 106);
-  text-align: center;
   width: 55%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-auth-left img {
@@ -85,15 +89,16 @@
 }
 
 .main-left-yellow h3 {
-  padding: 34% 5% 0 5%;
+  padding: 0 10%;
   font-family: "Guardian-EgypTT",serif;
   font-size: 30px;
 }
 
 .main-left-yellow p {
-  margin-top: 3%;
+  // margin-top: 3%;
   font-weight: 700;
   font-size: 14px;
+  margin-top: 2%;
 }
 
 .main-auth-left-container {

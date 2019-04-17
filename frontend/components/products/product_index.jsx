@@ -36,21 +36,9 @@ class ProductIndex extends React.Component {
                         
                         <ul>
                             {products}
-                            {/* {Object.values(this.props.products).map((product, idx) => {
-                                return (
-                                    <div key={idx} className='product-item'>
-                                        
-                                        <Link to={`products/${product.id}`}>
-                                            <li key={product.id}>{product.title}</li>
-                                        </Link>
-                                    </div>
-                                );
-                            })} */}
-                            
                         </ul>
 
                     </div>
-
                     <Footer />
                 </div>
             </>

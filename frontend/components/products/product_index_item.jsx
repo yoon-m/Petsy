@@ -21,14 +21,19 @@ class ProductIndexItem extends React.Component {
 
     render() {
         let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]} />
+        let price = (this.props.product.price).toFixed(2);
 
         return(
             <>
-                <div className='index-item-container'>
+                <div className='index-item-container' >
                     <span onClick={this.prevImg.bind(this)} className='ici-arrow ici-left'>{'<'}</span>
                     {productPics}
                     <span onClick={this.nextImg.bind(this)} className='ici-arrow ici-right'>{'>'}</span>
-                    <h3>{this.props.product.title}</h3>
+                    
+                    <div className='index-item-text'>
+                        <h3>{this.props.product.title}</h3>
+                        <p>${price}</p>
+                    </div>
                 </div>
             </>
         )

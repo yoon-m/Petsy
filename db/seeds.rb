@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 Review.destroy_all
 CartItem.destroy_all
 Product.destroy_all
@@ -45,6 +47,53 @@ j = Product.create(title: 'Bird Jacket', owner_id: a.id, price: 199.99,
     adjustable, stow-away hood, a Velcro storm flap and an internal cinch cord for a 
     personally tailored feeling fit.")
 
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/snakebandana.jpg')
+f.pictures.attach(io: x, filename: 'snakebandana.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/snakebandana2.jpg')
+f.pictures.attach(io: x, filename: 'snakebandana2.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/snakebandana3.jpg')
+f.pictures.attach(io: x, filename: 'snakebandana3.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/snakebandana4.jpg')
+f.pictures.attach(io: x, filename: 'snakebandana4.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/horsehat.jpg')
+g.pictures.attach(io: x, filename: 'horsehat.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/horsehat2.jpeg')
+g.pictures.attach(io: x, filename: 'horsehat2.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/horsehat3.jpg')
+g.pictures.attach(io: x, filename: 'horsehat3.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/horsehat4.jpeg')
+g.pictures.attach(io: x, filename: 'horsehat4.jpeg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/pandabeanie.jpg')
+h.pictures.attach(io: x, filename: 'pandabeanie.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/pandabeanie2.jpg')
+h.pictures.attach(io: x, filename: 'pandabeanie2.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/pandabeanie3.jpeg')
+h.pictures.attach(io: x, filename: 'pandabeanie3.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/pandabeanie4.jpg')
+h.pictures.attach(io: x, filename: 'pandabeanie4.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/catnecklace.jpg')
+i.pictures.attach(io: x, filename: 'catnecklace.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/catnecklace2.jpeg')
+i.pictures.attach(io: x, filename: 'catnecklace2.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/catnecklace3.jpeg')
+i.pictures.attach(io: x, filename: 'catnecklace3.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/catnecklace4.jpg')
+i.pictures.attach(io: x, filename: 'catnecklace4.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/birdjacket.jpeg')
+j.pictures.attach(io: x, filename: 'birdjacket.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/birdjacket2.jpeg')
+j.pictures.attach(io: x, filename: 'birdjacket2.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/birdjacket3.jpeg')
+j.pictures.attach(io: x, filename: 'birdjacket3.jpeg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/birdjacket4.jpeg')
+j.pictures.attach(io: x, filename: 'birdjacket4.jpeg')
+
+
 CartItem.create(user_id: a.id, product_id: h.id, quantity: 3)
 CartItem.create(user_id: b.id, product_id: i.id, quantity: 4)
 CartItem.create(user_id: c.id, product_id: j.id, quantity: 2)
@@ -58,3 +107,4 @@ Review.create(author_id: b.id, product_id: h.id, title: 'My panda loves his bean
 Review.create(author_id: c.id, product_id: i.id, title: 'Great value', body: "You won't find better for this price", rating: 4)
 Review.create(author_id: d.id, product_id: j.id, title: 'I love this jacket!', body: 'Keeps little bobby warm in the winter', rating: 5)
 Review.create(author_id: e.id, product_id: g.id, title: 'Do not buy this!', body: 'My horse had a photoshoot and her hat was all ripped. Extremely disappointed.', rating: 1)
+
