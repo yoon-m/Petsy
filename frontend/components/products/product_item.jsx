@@ -91,8 +91,8 @@ class ProductItem extends React.Component {
         let productDescription = null;
         let productOwner = null;
         let productPrice = null;
-        let productRating = 0;
         let productTitle = null;
+        let productRating = 0;
         let productReviews = null;
         let productPics = null;
         let ratingStars = (

@@ -168,7 +168,7 @@
   z-index: 20;
 }
 
-.nav .fas {
+.nav .fa-briefcase, .nav .fa-shopping-cart {
   font-size: 20px;
   color: rgba(0, 0, 0, 0.6);
   padding: 25px;
@@ -181,7 +181,7 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.nav .fas:hover {
+.nav .fa-briefcase:hover, .nav .fa-shopping-cart:hover {
   color: black;
 }
 

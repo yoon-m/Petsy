@@ -39,6 +39,13 @@
     height: 30vh;
     margin-bottom: 5%;
     position: relative;
+    // disable text highlighting
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .index-item-container:hover {
@@ -57,4 +64,8 @@
 
 .ici-arrow:hover {
     cursor: pointer;
+}
+
+.index-item-text p {
+    font-weight: bold;
 }

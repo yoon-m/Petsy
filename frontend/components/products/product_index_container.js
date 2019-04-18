@@ -4,7 +4,6 @@ import { fetchProducts } from '../../actions/product_actions';
 
 const msp = state => {
     return {
-        // might need currentUser to see their products, their search history, etc.
         currentUser: state.entities.users[state.session.id],
         products: state.entities.products,
     };
@@ -12,7 +11,6 @@ const msp = state => {
 
 const mdp = dispatch => ({
     fetchProducts: () => dispatch(fetchProducts()),
-    
 });
 
 export default connect(msp, mdp)(ProductIndex);
