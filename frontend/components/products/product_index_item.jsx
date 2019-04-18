@@ -1,5 +1,6 @@
 import React from 'react';
 import IndexCarouselItem from './index_carousel_item';
+import { withRouter } from 'react-router-dom';
 
 class ProductIndexItem extends React.Component {
     constructor(props) {
@@ -19,13 +20,17 @@ class ProductIndexItem extends React.Component {
         this.setState({ img_pos: newPos });
     }
 
+    linkToShow() {
+        this.props.history.push(`/products/${this.props.product.id}`);
+    }
+
     render() {
-        let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]} />
+        let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]}/>
         let price = (this.props.product.price).toFixed(2);
 
         return(
             <>
-                <div className='index-item-container' >
+                <div className='index-item-container' onClick={this.linkToShow.bind(this)}>
                     <span onClick={this.prevImg.bind(this)} className='ici-arrow ici-left'>{'<'}</span>
                     {productPics}
                     <span onClick={this.nextImg.bind(this)} className='ici-arrow ici-right'>{'>'}</span>
@@ -40,4 +45,4 @@ class ProductIndexItem extends React.Component {
     }
 }
 
-export default ProductIndexItem;
+export default withRouter(ProductIndexItem);

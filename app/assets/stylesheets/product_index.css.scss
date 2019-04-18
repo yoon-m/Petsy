@@ -41,6 +41,10 @@
     position: relative;
 }
 
+.index-item-container:hover {
+    cursor: pointer;
+}
+
 .index-item-container h3 {
     text-align: center;
 }
