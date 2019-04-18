@@ -7,7 +7,7 @@ class About extends React.Component {
                 <div className='about'>
                     <div className='about-header'>
                         <h2>What is Petsy?</h2>
-                        <a href="#"><p>Read our wonderfully weird story</p></a>
+                        <a href="/#/about"><p>Read our wonderfully weird story</p></a>
                     </div>
 
                     <div className='about-column-container'>
@@ -47,7 +47,7 @@ class About extends React.Component {
                         </div>
 
                         <h3>Have a question? Well, we've got some answers.</h3>
-                        <a className='help-center-btn' href='#'>Go to help center</a>
+                        <a className='help-center-btn' href='/#/about'>Go to help center</a>
                     </div>
                 </div>
             </>

@@ -11,9 +11,9 @@ class FooterBanner extends React.Component {
                 
                 <div className='footer-banner-right'>
                     <p>&copy; 2019 Petsy, Inc.</p>
-                    <a href='#'>Terms of Use</a>
-                    <a href='#'>Privacy</a>
-                    <a href='#'>Interest-based ads</a>
+                    <a href='/#/about'>Terms of Use</a>
+                    <a href='/#/about'>Privacy</a>
+                    <a href='/#/about'>Interest-based ads</a>
                 </div>
             </>
         );

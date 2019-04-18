@@ -95,10 +95,10 @@ class Greeting extends React.Component {
                                 </div></Link>
                                 <hr />
                                 <ul>
-                                    <a href='#'><li>Favorites</li></a>
-                                    <a href='#'><li>Conversations</li></a>
-                                    <a href='#'><li>Purchases and Reviews</li></a>
-                                    <a href='#'><li>Account Settings</li></a>
+                                    <a href='/#/soon'><li>Favorites</li></a>
+                                    <a href='/#/soon'><li>Conversations</li></a>
+                                    <a href='/#/soon'><li>Purchases and Reviews</li></a>
+                                    <a href='/#/soon'><li>Account Settings</li></a>
                                     <hr />
                                     <a href='#'><li onClick={this.props.logout}>Sign out</li></a>
                                 </ul>

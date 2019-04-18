@@ -185,7 +185,7 @@ class ProductItem extends React.Component {
                         </div>
 
                         <div className='show-right'>
-                            <h4 className='product-owner'><a href="#">{productOwner}</a></h4>{ratingStars}
+                            <h4 className='product-owner'><a href="/#/soon">{productOwner}</a></h4>{ratingStars}
                             <p className='product-title'>{productTitle}</p>
                             <p className='product-price'>${productPrice}</p>
                             <p>Free shipping</p>

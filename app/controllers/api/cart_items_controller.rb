@@ -1,6 +1,4 @@
-class Api::CartItemsController < ApplicationController
-    # skip_before_action :verify_authenticity_token
-    
+class Api::CartItemsController < ApplicationController    
     def show
         @cartItem = CartItem.find_by(id: params[:id])
 

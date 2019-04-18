@@ -6,13 +6,13 @@ class Latest extends React.Component {
             <>
                 <div className='latest-container'>
                     <div className='latest-header'>
-                        <a href="#"><h2>Browse our latest collections</h2></a>
-                        <a href='#'><p>See more</p></a>
+                        <a href="/#/products"><h2>Browse our latest collections</h2></a>
+                        <a href='/#/products'><p>See more</p></a>
                     </div>
 
                     <div className='latest-item-container'>
 
-                        <div className='latest-item'><a href='#' className='latest-links'>
+                        <div className='latest-item'><a href='/#/products' className='latest-links'>
                             <img src='https://s3.amazonaws.com/aa-petsy-public/latest2.jpg' />
                             <div className='latest-item-text'>
                                 <p>EDITORS' PICKS</p>
@@ -20,7 +20,7 @@ class Latest extends React.Component {
                             </div></a>
                         </div>
 
-                        <div className='latest-item'><a href='#' className='latest-links'>
+                        <div className='latest-item'><a href='/#/products' className='latest-links'>
                             <img src='https://s3.amazonaws.com/aa-petsy-public/latest3.jpg' />
                             <div className='latest-item-text'>
                                 <p>EDITORS' PICKS</p>
