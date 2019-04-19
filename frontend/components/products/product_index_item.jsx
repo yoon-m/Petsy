@@ -1,6 +1,7 @@
 import React from 'react';
-import IndexCarouselItem from './index_carousel_item';
 import { withRouter } from 'react-router-dom';
+import IndexCarouselItem from './index_carousel_item';
+import ReviewStars from '../../components/review_stars/review_stars';
 
 class ProductIndexItem extends React.Component {
     constructor(props) {
@@ -31,24 +32,15 @@ class ProductIndexItem extends React.Component {
     render() {
         let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]} id={this.props.product.id}/>
         let price = (this.props.product.price).toFixed(2);
+        let testing = null;
+        if (this.props.reviews.length != 0) {
+            testing = (
+                <ReviewStars reviews={this.props.reviews} id={this.props.reviews.product_id} />
 
-        // RATING STARS
-        let productAVGRating = 0;
-        let productTOTRating = 0;
-
-        if (this.props.reviews.length == 0) {
-            // debugger
-            // document.getElementById(`${this.props.product.id}a`).style.color = gold;
-        } else {
-            this.props.reviews.forEach(review => {
-                productTOTRating += review.rating;
-            });
-
-            productAVGRating = Math.round(productTOTRating / this.props.reviews.length);
-
-
+            );
         }
 
+        // debugger
         return(
             <>
                 <div className='index-item-container' >
@@ -59,11 +51,7 @@ class ProductIndexItem extends React.Component {
                     <div className='index-item-text' onClick={this.linkToShow.bind(this)}>
                         <h3>{this.props.product.title}</h3>
                         <p>${price}</p>
-                        <span><i className="fas fa-star" id={`${this.props.product.id}a`}></i></span>
-                        <span><i className="fas fa-star" id={`${this.props.product.id}b`}></i></span>
-                        <span><i className="fas fa-star" id={`${this.props.product.id}c`}></i></span>
-                        <span><i className="fas fa-star" id={`${this.props.product.id}d`}></i></span>
-                        <span><i className="fas fa-star" id={`${this.props.product.id}e`}></i></span>
+                        {testing}
                     </div>
                 </div>
             </>

@@ -12,7 +12,7 @@ class ProductIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchProducts().then(() => this.props.history.push('/products'));
+        this.props.fetchProducts();
     }
 
     render() {

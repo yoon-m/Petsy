@@ -10,7 +10,6 @@ const msp = state => {
 
 const mdp = dispatch => ({
     fetchReviews: productId => dispatch(fetchReviews(productId)),
-    
 });
 
 export default connect(msp, mdp)(ProductIndexItem);
