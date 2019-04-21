@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
+import ReviewStars from './review_stars';
 import { fetchReviews } from '../../actions/review_actions';
-import ProductIndexItem from './product_index_item';
 
-const msp = state => {
+const msp = (state, ownProps) => {
     return {
         reviews: Object.values(state.entities.reviews),
     };
@@ -12,4 +12,4 @@ const mdp = dispatch => ({
     fetchReviews: productId => dispatch(fetchReviews(productId)),
 });
 
-export default connect(msp, mdp)(ProductIndexItem);
+export default connect(msp, mdp)(ReviewStars);

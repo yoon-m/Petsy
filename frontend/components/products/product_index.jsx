@@ -4,7 +4,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 import Modal from '../modal/modal';
-import ProductIndexItemContainer from './product_index_item_container';
+import ProductIndexItem from './product_index_item';
 
 class ProductIndex extends React.Component {
     constructor(props) {
@@ -12,22 +12,18 @@ class ProductIndex extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         this.props.fetchProducts();
     }
 
     componentDidUpdate() {
-        debugger
     }
 
     render() {
-        debugger
         let products = null;
 
         if (Object.values(this.props.products).length != 0) {
-            debugger
             products = Object.values(this.props.products).map(product => {
-                return (<ProductIndexItemContainer product={product} key={product.id} />);
+                return (<ProductIndexItem product={product} key={product.id} />);
             });
         }
 

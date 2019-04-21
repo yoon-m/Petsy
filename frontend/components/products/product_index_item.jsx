@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import IndexCarouselItem from './index_carousel_item';
-import ReviewStars from '../../components/review_stars/review_stars';
+import ReviewStarsContainer from '../../components/review_stars/review_stars_container';
 
 class ProductIndexItem extends React.Component {
     constructor(props) {
@@ -9,10 +9,6 @@ class ProductIndexItem extends React.Component {
         this.state = {
             img_pos: 0,
         };
-    }
-
-    componentDidMount() {
-        this.props.fetchReviews(this.props.product.id);
     }
 
     prevImg() {
@@ -32,14 +28,6 @@ class ProductIndexItem extends React.Component {
     render() {
         let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]} id={this.props.product.id}/>
         let price = (this.props.product.price).toFixed(2);
-        let testing = null;
-
-        if (this.props.reviews.length != 0) {
-            testing = (
-                <ReviewStars reviews={this.props.reviews} id={this.props.reviews[0].product_id} />
-
-            );
-        }
 
         return(
             <>
@@ -51,7 +39,7 @@ class ProductIndexItem extends React.Component {
                     <div className='index-item-text' onClick={this.linkToShow.bind(this)}>
                         <h3>{this.props.product.title}</h3>
                         <p>${price}</p>
-                        {testing}
+                        <ReviewStarsContainer productId={this.props.product.id} />
                     </div>
                 </div>
             </>
