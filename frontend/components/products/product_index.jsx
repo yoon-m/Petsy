@@ -12,13 +12,20 @@ class ProductIndex extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.fetchProducts();
     }
 
+    componentDidUpdate() {
+        debugger
+    }
+
     render() {
+        debugger
         let products = null;
 
-        if (this.props.products) {
+        if (Object.values(this.props.products).length != 0) {
+            debugger
             products = Object.values(this.props.products).map(product => {
                 return (<ProductIndexItemContainer product={product} key={product.id} />);
             });

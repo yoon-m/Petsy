@@ -6,6 +6,7 @@ class ReviewStars extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         document.getElementById(`${this.props.id}a`).style.color = 'gold';
         document.getElementById(`${this.props.id}b`).style.color = 'gold';
         document.getElementById(`${this.props.id}c`).style.color = 'gold';
@@ -14,6 +15,7 @@ class ReviewStars extends React.Component {
     }
 
     componentDidUpdate() {
+        debugger
         // let productAVGRating = 0;
         // let productTOTRating = 0;
 
@@ -44,6 +46,7 @@ class ReviewStars extends React.Component {
     
 
     render() {
+        debugger
         let productAVGRating = 0;
         let productTOTRating = 0;
         this.props.reviews.forEach(review => {
@@ -52,7 +55,7 @@ class ReviewStars extends React.Component {
 
         productAVGRating = Math.round(productTOTRating / this.props.reviews.length);
 
-        if (productAVGRating) {
+        if (productAVGRating && document.getElementById(`${this.props.id}e`)) {
             if (productAVGRating === 4) {
                 document.getElementById(`${this.props.id}e`).style.color = 'black';
             } else if (productAVGRating === 3) {

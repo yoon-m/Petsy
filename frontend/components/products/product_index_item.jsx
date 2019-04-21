@@ -33,14 +33,14 @@ class ProductIndexItem extends React.Component {
         let productPics = <IndexCarouselItem url={this.props.product.photoUrls[this.state.img_pos]} id={this.props.product.id}/>
         let price = (this.props.product.price).toFixed(2);
         let testing = null;
+
         if (this.props.reviews.length != 0) {
             testing = (
-                <ReviewStars reviews={this.props.reviews} id={this.props.reviews.product_id} />
+                <ReviewStars reviews={this.props.reviews} id={this.props.reviews[0].product_id} />
 
             );
         }
 
-        // debugger
         return(
             <>
                 <div className='index-item-container' >
