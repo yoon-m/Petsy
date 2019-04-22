@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import swal from '@sweetalert/with-react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
@@ -18,16 +18,27 @@ class Cart extends React.Component {
     handlePay(e) {
         if (this.props.cart) {
             e.preventDefault();
-            alert('Thanks for testing my website!');
+            // alert('Thanks for testing my website!');
+            swal(
+                <h1>Thanks for testing my website!</h1>,
+                {
+                    icon: "success",
+                })
             let itemIds = [];
+            
             Object.values(this.props.cart).map(item => {
                 itemIds.push(item.id);
             });
 
             this.props.removeAllItems(itemIds);
-            location.reload();
+            this.props.history.push('/');
         } else {
-            alert('Please add something to your cart!');
+            // alert('Please add something to your cart!');
+            swal(
+                <h1>Please add something to your cart!</h1>,
+                {
+                    icon: "error",
+                })
         }
     }
 

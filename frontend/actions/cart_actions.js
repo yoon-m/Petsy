@@ -49,5 +49,5 @@ export const updateCart = product => dispatch => {
 };
 
 export const removeAllItems = itemIds => dispatch => {
-    return CartAPIUtil.removeAllItems(itemIds).then(() => dispatch(clearCart()));
+    return CartAPIUtil.removeAllItems(itemIds);
 };

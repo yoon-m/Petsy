@@ -11,6 +11,7 @@ const cartReducer = (state = {}, action) => {
             return action.cart;
 
         case ADD_ITEM:
+            debugger
             return {
                 cartItems: Object.assign({}, state.cartItems, state.cartItems[Object.values(action.payload)[0].id] = action.payload)
             };

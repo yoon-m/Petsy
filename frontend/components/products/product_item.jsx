@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+import swal from '@sweetalert/with-react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
@@ -54,8 +54,12 @@ class ProductItem extends React.Component {
 
     buyNow(e) {
         e.preventDefault();
-        alert('Thanks for testing my website!');
-        document.location.href = "/";
+        // alert('Thanks for testing my website!');
+        swal(
+            <h1>Thanks for testing my website!</h1>,
+            {
+                icon: "success",
+            }).then(() => document.location.href = "/");
     }
 
     handleChange(field) {
