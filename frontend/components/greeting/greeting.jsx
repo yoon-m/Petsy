@@ -55,16 +55,24 @@ class Greeting extends React.Component {
                     <div className='no-search-results'></div>
                 );
             } else {
-                this.searchObs = this.props.searchResults.slice(0, 5);
-                this.searchBox = (
-                    <div className='search-results'>
-                        {this.searchObs.map(result => {
-                            return (
-                                <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' >{result.title}</p></a>
-                            )
-                        })}
-                    </div>
-                );
+                if (this.props.searchResults.length != 0) {
+                    this.searchObs = this.props.searchResults.slice(0, 5);
+                    this.searchBox = (
+                        <div className='search-results'>
+                            {this.searchObs.map(result => {
+                                return (
+                                    <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' >{result.title}</p></a>
+                                )
+                            })}
+                        </div>
+                    );
+                } else {
+                    this.searchBox = (
+                        <div className='search-results'>
+                            <p className='search-result'>No results found</p>
+                        </div>
+                    );
+                }
             }
         }
 

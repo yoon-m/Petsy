@@ -7,9 +7,17 @@ class IndexCarouselItem extends React.Component {
     }
 
     render() {
+        let pic;
+
+        if (this.props.url) {
+            pic = (<img src={this.props.url} onClick={this.linkToShow.bind(this)} />);
+        } else {
+            pic = <img src={window.noImg} onClick={this.linkToShow.bind(this)} />
+        }
+
         return (
             <>
-                <img src={this.props.url} onClick={this.linkToShow.bind(this)} />
+                {pic}
             </>
         )
     }

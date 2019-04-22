@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
@@ -13,9 +12,6 @@ class ProductIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchProducts();
-    }
-
-    componentDidUpdate() {
     }
 
     render() {

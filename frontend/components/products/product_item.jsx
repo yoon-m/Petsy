@@ -78,12 +78,14 @@ class ProductItem extends React.Component {
     }
 
     prevImg() {
-        let newPos = (((this.state.img_pos - 1) % 4) + 4) % 4;
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos - 1) % numPics) + numPics) % numPics;
         this.setState({ img_pos: newPos });
     }
 
     nextImg() {
-        let newPos = (((this.state.img_pos + 1) % 4) + 4) % 4;
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos - 1) % numPics) + numPics) % numPics;
         this.setState({ img_pos: newPos });
     }
 
@@ -139,6 +141,7 @@ class ProductItem extends React.Component {
             $('.rs3').css('color', 'grey')
             $('.rs4').css('color', 'grey')
             $('.rs5').css('color', 'grey')
+            
             if (Math.round(productRating) === 1) {
                 $('.rs1').css('color', 'gold')
             } else if (Math.round(productRating) === 2) {
@@ -153,7 +156,7 @@ class ProductItem extends React.Component {
                 $('.rs2').css('color', 'gold')
                 $('.rs3').css('color', 'gold')
                 $('.rs4').css('color', 'gold')
-            } else if (Math.round(productRating) === 5) {
+            } else if (Math.round(productRating) === 5 || !productRating) {
                 $('.rs1').css('color', 'gold')
                 $('.rs2').css('color', 'gold')
                 $('.rs3').css('color', 'gold')

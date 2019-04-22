@@ -12,12 +12,14 @@ class ProductIndexItem extends React.Component {
     }
 
     prevImg() {
-        let newPos = (((this.state.img_pos - 1) % 4) + 4) % 4;
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos - 1) % numPics) + numPics) % numPics;
         this.setState({ img_pos: newPos });
     }
 
     nextImg() {
-        let newPos = (((this.state.img_pos + 1) % 4) + 4) % 4;
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos + 1) % numPics) + numPics) % numPics;
         this.setState({ img_pos: newPos });
     }
 

@@ -25,8 +25,6 @@ class Sell extends React.Component {
         for (let i = 0; i < this.state.pictures.length; i++) {
             formData.append('product[pictures][]', this.state.pictures[i]);
         }
-        
-        debugger
 
         this.props.createProduct(formData).then(this.props.history.push('/'));
     }
@@ -38,7 +36,6 @@ class Sell extends React.Component {
     }
 
     handleFile(e) {
-        debugger
         this.setState({ pictures: e.currentTarget.files });
     }
 

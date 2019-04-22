@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
+import ProductIndexItem from '../../components/products/product_index_item';
 
 class SearchPage extends React.Component {
     
@@ -14,10 +15,11 @@ class SearchPage extends React.Component {
         
         if (this.props.searchResults) {
             results = this.props.searchResults.map(result => {
-                return (
-                    <a key={result.id} href={`/#/products/${result.id}`}><p>{result.title}</p></a>
-                )
-            })
+                // return (
+                //     <a key={result.id} href={`/#/products/${result.id}`}><p>{result.title}</p></a>
+                // )
+                return (<ProductIndexItem product={result} key={result.id} />);
+            });
         }
 
         return(
@@ -25,10 +27,9 @@ class SearchPage extends React.Component {
                 <GreetingContainer />
                 <CategoryNav />
 
-                <h2>SEARCH PAGE!</h2>
-
-                <h3>SEARCH RESULTS:</h3>
-                <div>
+                <h1>Search Products</h1>
+                
+                <div className='search-index-container'>
                     {results}
                 </div>
 
