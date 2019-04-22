@@ -12,13 +12,13 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.fetchCart(this.props.currentUser.id);
     }
 
     handlePay(e) {
         if (this.props.cart) {
             e.preventDefault();
-            // alert('Thanks for testing my website!');
             swal(
                 <h1>Thanks for testing my website!</h1>,
                 {
@@ -33,7 +33,6 @@ class Cart extends React.Component {
             this.props.removeAllItems(itemIds);
             this.props.history.push('/');
         } else {
-            // alert('Please add something to your cart!');
             swal(
                 <h1>Please add something to your cart!</h1>,
                 {

@@ -4,6 +4,10 @@ import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 
 class AboutPage extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         return (
             <>

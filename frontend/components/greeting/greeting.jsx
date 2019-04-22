@@ -37,11 +37,17 @@ class Greeting extends React.Component {
     }
 
     leaveFocus(e) {
-        $('.search-result-container').css('display', 'none');
+        setTimeout(function () { $('.search-result-container').css('display', 'none'); }, 300);
     }
 
     enterFocus(e) {
         $('.search-result-container').css('display', 'block');
+    }
+
+    searchLink(id) {
+        return e => {
+            this.props.history.push(`/products/${id}`);
+        };
     }
 
     render() {
@@ -61,7 +67,7 @@ class Greeting extends React.Component {
                         <div className='search-results'>
                             {this.searchObs.map(result => {
                                 return (
-                                    <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' >{result.title}</p></a>
+                                    <a key={result.id} href={`/#/products/${result.id}`}><p className='search-result' onClick={this.searchLink(result.id)}>{result.title}</p></a>
                                 )
                             })}
                         </div>

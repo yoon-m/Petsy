@@ -25,6 +25,7 @@ class ProductItem extends React.Component {
     }
     
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.fetchProduct(this.props.match.params.productId)
             .then(this.props.fetchReviews(this.props.match.params.productId));
     }
@@ -54,7 +55,6 @@ class ProductItem extends React.Component {
 
     buyNow(e) {
         e.preventDefault();
-        // alert('Thanks for testing my website!');
         swal(
             <h1>Thanks for testing my website!</h1>,
             {
@@ -198,7 +198,7 @@ class ProductItem extends React.Component {
                             <p>Free shipping</p>
 
                             <button onClick={this.buyNow} className='buy-now-btn'>Buy it now</button>
-                            <input id='quantity' type="number" min='1' defaultValue='1'/>
+                            <input id='quantity' type="number" min='1' defaultValue='1' step='1' />
                             <button onClick={this.addToCart} className='add-cart-btn'>Add to cart</button>
 
                             <hr>
