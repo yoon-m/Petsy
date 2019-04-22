@@ -7,7 +7,7 @@
 .sell-form {
     padding: 2%;
     font-family: "Guardian-EgypTT",serif;
-    height: 60vh;
+    height: 50vh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -38,7 +38,7 @@
     display: block;
     margin: 2% auto;
     border-radius: 5px;
-    padding: 5%;
+    padding: 3%;
 }
 
 .sell-form input[type=submit]:hover {
@@ -60,5 +60,11 @@
 input[type=file] {
     font-size: 20px;
     display: block;
-    margin: 0 auto;
+    margin-left: 25%;
+}
+
+.sell-right h5 {
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
 }

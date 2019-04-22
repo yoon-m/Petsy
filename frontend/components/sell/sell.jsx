@@ -66,6 +66,7 @@ class Sell extends React.Component {
                             <div className='sell-right'>
                                 <h2>Upload pictures for your listing</h2>
                                 <input type="file" onChange={this.handleFile.bind(this)} multiple/>
+                                <h5>(You can upload multiple files at once.)</h5>
                             </div>
                         </form>
                     </div>
