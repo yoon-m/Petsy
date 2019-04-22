@@ -8,8 +8,9 @@
     padding: 2%;
     font-family: "Guardian-EgypTT",serif;
     height: 60vh;
-    width: 50vw;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .sell-form h2 {
@@ -45,5 +46,13 @@
 }
 
 .sell-form-container {
-    background-color: pink;
+    background-color: rgb(255, 218, 149);
+}
+
+.sell-left {
+    width: 50%;
+}
+
+.sell-right {
+    width: 50%;
 }

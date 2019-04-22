@@ -35,6 +35,7 @@ class Sell extends React.Component {
                     <div className='sell-container'></div>
                     <div className='sell-form-container'>
                         <form className='sell-form' onSubmit={this.handleSubmit}>
+                            <div className='sell-left'>
                             <h2>Create a listing</h2>
                             <h4>Product Title:</h4>
                             <input type="text" value={this.state.title} onChange={this.handleChange('title')} required/>
@@ -46,6 +47,12 @@ class Sell extends React.Component {
                             <input type="number" min='0.01' step='0.01' onChange={this.handleChange('price')} required/>
                             <br></br>
                             <input type="submit" value='Create listing'/>
+                            </div>
+
+                            <div className='sell-right'>
+                                <h2>Upload pictures</h2>
+                                
+                            </div>
                         </form>
                     </div>
                     <Footer />
