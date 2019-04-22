@@ -11,7 +11,6 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
     createProduct: product => dispatch(createProduct(product)),
-
 });
 
 export default connect(msp, mdp)(Sell);

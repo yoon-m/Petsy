@@ -20,6 +20,14 @@ class SessionForm extends React.Component {
         this.props.processForm(this.state).then(this.props.closeModal);
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+        this.props.demoLogin({
+            email: 'mike@gmail.com',
+            password: 'starwars'
+        });
+    }
+
     componentWillUnmount() {
         this.props.clearErrors();
     }
@@ -29,11 +37,13 @@ class SessionForm extends React.Component {
         let modalTitle = null;
         let modalDescription = null;
         let authSpan = null;
+        let demoBtn = null;
 
         if (this.props.formType === 'Register') {
             modalTitle = <h1>Create your account</h1>
             modalDescription = <p className='reg-text'>Registration is easy.</p>
             authSpan = <span className='auth-star'>*</span>
+            demoBtn = <button onClick={this.handleDemo.bind(this)}>Log in as a demo user</button>
             fnameField = (
                 <>
                     <label>First name {authSpan}
@@ -45,6 +55,7 @@ class SessionForm extends React.Component {
                         />
                     </label>
                     <br />
+                    
                 </>
             );
         } else {
@@ -99,6 +110,9 @@ class SessionForm extends React.Component {
                     </label>
                     <p className='error'>{passwordError}</p>
                     <br />
+
+                    {demoBtn}
+                    <br/>
 
                     <input type="submit" value={this.props.formType} />
                     </div>

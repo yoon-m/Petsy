@@ -1,0 +1,43 @@
+.about-blurb {
+    font-size: 20px;
+    padding: 2% 10%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(60, 60, 60);
+}
+
+.about-top img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    width: 80%;
+}
+
+.about-top {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3%;
+}
+
+.about-top a {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+
+.about-socials-left, .about-socials-right, .about-mid {
+    width: 30%;
+}
+
+.about-top .fas, .about-top .fab {
+    font-size: 100px;
+}
+
+.about-socials-left, .about-socials-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.about-top .fas:hover, .about-top .fab:hover {
+    color: rgb(196, 196, 196);
+}

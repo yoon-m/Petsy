@@ -141,6 +141,20 @@
   margin-top: 40px;
 }
 
+.modal-child input[type=submit]:hover, .modal-child button:hover {
+  background-color: rgb(80, 79, 79);
+}
+
+.modal-child button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.900);
+  border-radius: 5px;
+  width: 500px;
+  height: 65px;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
 .auth-star {
   color: red;
 }

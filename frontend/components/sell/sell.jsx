@@ -10,19 +10,33 @@ class Sell extends React.Component {
             title: '',
             description: '',
             price: 0,
+            photoFiles: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createProduct(this.state).then(this.props.history.push('/'));
+        const formData = new FormData();
+        formData.append('product[title]', this.state.title);
+        formData.append('product[price]', this.state.price);
+        formData.append('product[description]', this.state.description);
+
+        for (let i = 0; i < this.state.photoFiles.length; i++) {
+            formData.append('product[photoFiles][]', this.state.photoFiles[i]);
+        }
+        
+        this.props.createProduct(formData).then(this.props.history.push('/'));
     }
 
     handleChange(field) {
         return e => {
             this.setState({ [field]: e.target.value });
         };
+    }
+
+    handleFile(e) {
+        this.setState({ photoFiles: e.currentTarget.files[0] });
     }
 
     render() {
@@ -50,8 +64,8 @@ class Sell extends React.Component {
                             </div>
 
                             <div className='sell-right'>
-                                <h2>Upload pictures</h2>
-                                
+                                <h2>Upload pictures for your listing</h2>
+                                <input type="file" onChange={this.handleFile.bind(this)} multiple/>
                             </div>
                         </form>
                     </div>

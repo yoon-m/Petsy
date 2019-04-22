@@ -17,12 +17,13 @@ class Api::ProductsController < ApplicationController
     end
 
     def create
-        @product = Product.new(product_params)
-        @product.owner_id = current_user.id
-        if @product.save
+        product = Product.new(product_params)
+        product.owner_id = current_user.id
+
+        if product.save
             render :show
         else
-            render json: @product.errors.full_messages, status: 422
+            render json: product.errors.full_messages, status: 422
         end
     end
 

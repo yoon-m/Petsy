@@ -32,6 +32,10 @@ class Greeting extends React.Component {
         }
     }
 
+    handleSearch(e) {
+        this.props.history.push(`/search=${this.state.searchValue}`); 
+    }
+
     leaveFocus(e) {
         $('.search-result-container').css('display', 'none');
     }
@@ -87,7 +91,7 @@ class Greeting extends React.Component {
                             </div>
 
                             <div className="dropdown-content" id='panel'>
-                                <Link to='/profile'><div className='dropdown-content-top'>
+                                <Link to='/soon'><div className='dropdown-content-top'>
                                     <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar' />
                                     {this.props.currentUser.first_name}
                                     <br />
@@ -156,6 +160,7 @@ class Greeting extends React.Component {
     
                     <button
                         className='search-button'
+                        onClick={this.handleSearch.bind(this)}
                     >
                         Search
                     </button>
