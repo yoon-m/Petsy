@@ -10,7 +10,7 @@ class Sell extends React.Component {
             title: '',
             description: '',
             price: 0,
-            photoFiles: []
+            pictures: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,10 +22,12 @@ class Sell extends React.Component {
         formData.append('product[price]', this.state.price);
         formData.append('product[description]', this.state.description);
 
-        for (let i = 0; i < this.state.photoFiles.length; i++) {
-            formData.append('product[photoFiles][]', this.state.photoFiles[i]);
+        for (let i = 0; i < this.state.pictures.length; i++) {
+            formData.append('product[pictures][]', this.state.pictures[i]);
         }
         
+        debugger
+
         this.props.createProduct(formData).then(this.props.history.push('/'));
     }
 
@@ -36,7 +38,8 @@ class Sell extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({ photoFiles: e.currentTarget.files[0] });
+        debugger
+        this.setState({ pictures: e.currentTarget.files });
     }
 
     render() {

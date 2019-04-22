@@ -20,6 +20,7 @@ class Api::ProductsController < ApplicationController
         product = Product.new(product_params)
         product.owner_id = current_user.id
 
+        debugger
         if product.save
             render :show
         else
