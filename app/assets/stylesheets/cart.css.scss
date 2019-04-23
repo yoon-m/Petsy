@@ -1,6 +1,6 @@
 // CART
 .cart-container {
-  background-color: rgb(250, 214, 220);
+  background-color: rgb(245, 245, 245);
   padding: 2% 0 5%;
 }
 
@@ -15,9 +15,9 @@
   border: 1px solid rgb(99, 98, 98);
   border-radius: 5px;
   padding: 5%;
-  display: flex;
   position: relative;
   margin: 0 auto;
+  display: flex;
 }
 
 .cart-count {
@@ -62,13 +62,16 @@
 .cart-item-left a {
   text-decoration: none;
   color: black;
-
 }
 
 .cart-item-left a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .cart-item-container button:hover {
   background-color: rgba(0, 0, 0, 0.81);
+}
+
+.ci {
+  margin-bottom: 2%;
 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Cart from './cart';
-import { fetchCart, removeFromCart, updateCart, removeAllItems } from '../../actions/cart_actions';
+import { fetchCart, removeFromCart, updateCart, removeAllItems, addToCart } from '../../actions/cart_actions';
 
 const msp = (state) => {
     return {
@@ -14,6 +14,7 @@ const mdp = dispatch => ({
     removeFromCart: id => dispatch(removeFromCart(id)),
     updateCart: product => dispatch(updateCart(product)),
     removeAllItems: itemIds => dispatch(removeAllItems(itemIds)),
+    addToCart: cartItem => dispatch(addToCart(cartItem)),
 });
 
 export default connect(msp, mdp)(Cart);

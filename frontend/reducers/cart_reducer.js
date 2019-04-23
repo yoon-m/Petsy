@@ -1,6 +1,6 @@
 import { CLEAR_CART, ADD_ITEM, REMOVE_ITEM, RECEIVE_CART } from '../actions/cart_actions';
 
-const cartReducer = (state = {}, action) => {
+const cartReducer = (state = {cartItems: {}}, action) => {
     Object.freeze(state);
     const newState = Object.assign({}, state);
     switch (action.type) {
@@ -11,8 +11,12 @@ const cartReducer = (state = {}, action) => {
             return action.cart;
 
         case ADD_ITEM:
+            if (Object.values(newState).length === 0) {
+                newState.cartItems = {};
+            }
+
             return {
-                cartItems: Object.assign({}, state.cartItems, state.cartItems[Object.values(action.payload)[0].id] = action.payload)
+                cartItems: Object.assign({}, newState.cartItems, newState.cartItems[Object.values(action.payload)[0].id] = action.payload)
             };
 
         case REMOVE_ITEM:

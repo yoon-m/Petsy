@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 import Modal from '../modal/modal';
+import CartImgContainer from '../cart/cart_img_container';
 
 class Cart extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         window.scrollTo(0, 0);
         this.props.fetchCart(this.props.currentUser.id);
     }
@@ -45,10 +47,24 @@ class Cart extends React.Component {
         this.props.removeFromCart(id).then(location.reload());
     }
 
+    updateQuantity(cartItem_id, quantity, product_id) {
+        let item = {
+            user_id: this.props.currentUser.id,
+            quantity,
+            product_id
+        }
+
+        this.props.removeFromCart(cartItem_id).then(() => {
+            this.props.addToCart(item)
+        }).then(() => location.reload())
+    }
+
     render() {
         let cart_items = [];
         let cart_count = null;
         let cart_total = null;
+        let subTotal = null;
+        let items = null;
 
         if (this.props.cart) {
             cart_items = Object.values(this.props.cart);
@@ -56,6 +72,34 @@ class Cart extends React.Component {
                 cart_total += (item.price * item.quantity);
                 cart_count += item.quantity;
             });
+            debugger
+            items = (
+                <div className='cart-item-left'>
+                    {cart_items.map((item, idx) => {
+                        return (
+                            <div className='ci' key={item.id} >
+                                <a href={`#/products/${item.product_id}`}>
+                                    <h3>{item.title}</h3>
+                                </a>
+
+                                <CartImgContainer />
+
+                                <input
+                                    id={`${item.id}-quantity`}
+                                    type="number"
+                                    min='1'
+                                    defaultValue={item.quantity}
+                                    step='1'
+                                />
+                                <button onClick={() => this.updateQuantity(item.id, document.getElementById(`${item.id}-quantity`).value, item.product_id)}>Update Quantity</button>
+                                <button onClick={() => this.removeCartItem(item.id)}>Remove item</button><br />
+                                <p>Subtotal: {item.quantity} x ${item.price} = ${(item.quantity * item.price).toFixed(2)}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+            );
+
             if (cart_count === 1) {
                 cart_count = (<h3 className='cart-count'>{cart_count} item in your cart</h3>)
             } else if (cart_count === 0) {
@@ -66,7 +110,7 @@ class Cart extends React.Component {
         } else {
             cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>)
         }
-
+        debugger
         return(
             <>
                 <div className="nav-container">
@@ -78,19 +122,7 @@ class Cart extends React.Component {
                     <div className='cart-container'>
                         {cart_count}
                         <div className='cart-item-container'>
-                            <div className='cart-item-left'>
-                                {cart_items.map(item => {
-                                    return (
-                                        <div key={item.id} >
-                                            <a href={`#/products/${item.product_id}`}>
-                                                <h3>{item.title}</h3>
-                                            </a>
-                                            <input className={`${item.id}-quantity`} type="number" min='1' defaultValue={item.quantity} />
-                                            <button onClick={() => this.removeCartItem(item.id)}>Remove item</button>
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                            {items}                
 
                             <div className='cart-vl'></div>
 

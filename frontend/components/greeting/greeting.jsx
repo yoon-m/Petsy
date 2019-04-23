@@ -17,7 +17,7 @@ class Greeting extends React.Component {
     }
 
     handleDropdown() {
-        $("#panel").slideToggle(100);
+        $("#panel").slideToggle(250);
     }
 
     handleChange(e) {
@@ -48,6 +48,10 @@ class Greeting extends React.Component {
         return e => {
             this.props.history.push(`/products/${id}`);
         };
+    }
+
+    leaveDropdown() {
+        setTimeout(function () { $("#panel").slideUp(250); }, 200);
     }
 
     render() {
@@ -99,12 +103,12 @@ class Greeting extends React.Component {
 
                     <div id='flip'>
                         <div className='nav-icons'>
-                            <div className='avatar-dropdown' onClick={this.handleDropdown}>
+                            <div className='avatar-dropdown' onClick={this.handleDropdown} >
                                 <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar avatar-hover' />
                                 <p>You <i className="fa fa-caret-down"></i></p>
                             </div>
 
-                            <div className="dropdown-content" id='panel'>
+                            <div className="dropdown-content" id='panel' onMouseLeave={this.leaveDropdown.bind(this)} >
                                 <Link to='/soon'><div className='dropdown-content-top'>
                                     <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar' />
                                     {this.props.currentUser.first_name}

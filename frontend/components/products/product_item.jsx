@@ -75,7 +75,7 @@ class ProductItem extends React.Component {
     createReview(e) {
         e.preventDefault();
         if (this.props.currentUser) {
-            this.props.createReview(this.state).then(location.reload());
+            this.props.createReview(this.state).then(setTimeout(location.reload(), 2000));
         } else {
             this.props.history.push('/');
         }
