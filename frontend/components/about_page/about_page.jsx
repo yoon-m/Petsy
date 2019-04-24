@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
+import Modal from '../modal/modal';
 
 class AboutPage extends React.Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class AboutPage extends React.Component {
                 <div className='nav-container'>
                     <GreetingContainer />
                     <CategoryNav />
-
+                    <Modal />
 
                     <div className='about-top'>
                         <div className='about-socials-left'>
