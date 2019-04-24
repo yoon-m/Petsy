@@ -12,12 +12,19 @@ CartItem.destroy_all
 Product.destroy_all
 User.destroy_all
 
+ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('products')
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
+ApplicationRecord.connection.reset_pk_sequence!('cart_items')
+
+# USERS
 a = User.create(first_name: 'Michael', email: 'mike@gmail.com', password: 'starwars')
 b = User.create(first_name: 'Marcus', email: 'mcavi@gmail.com', password: 'starwars')
 c = User.create(first_name: 'Linda', email: 'linda@gmail.com', password: 'starwars')
 d = User.create(first_name: 'Nick', email: 'nick@gmail.com', password: 'starwars')
 e = User.create(first_name: 'Rong', email: 'rong@gmail.com', password: 'starwars')
 
+# PRODUCTS
 f = Product.create(title: 'Snake Bandana', owner_id: a.id, price: 2099.99, 
     description: "Add a retro pop of color to any of your casual outfits with this bandana. 
     With the classic paisley pattern, this set of two bandanas lets you decide if 
