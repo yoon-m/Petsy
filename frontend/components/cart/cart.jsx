@@ -13,7 +13,6 @@ class Cart extends React.Component {
     }
 
     componentDidMount() {
-        debugger
         window.scrollTo(0, 0);
         this.props.fetchCart(this.props.currentUser.id);
     }
@@ -63,8 +62,14 @@ class Cart extends React.Component {
         let cart_items = [];
         let cart_count = null;
         let cart_total = null;
-        let subTotal = null;
         let items = null;
+        let cartRight = (
+            <div className='c-empty'>
+                <h2>Your cart is empty.</h2>
+                <a href="/#/products">Discover something unique to fill it up</a>
+            </div>
+        );
+
 
         if (this.props.cart) {
             cart_items = Object.values(this.props.cart);
@@ -72,28 +77,47 @@ class Cart extends React.Component {
                 cart_total += (item.price * item.quantity);
                 cart_count += item.quantity;
             });
-            debugger
+
+            if (cart_count) {
+                cartRight = (
+                    <div className='cart-item-right'>
+                        
+                        Total: ${Math.round((cart_total + 0.00001) * 100) / 100}
+                        <br></br>
+                        Shipping: Free!
+                        <br/>
+                        <hr/>
+                        <button onClick={this.handlePay}>Proceed to checkout</button>
+                    </div>
+                )
+            }
+
             items = (
                 <div className='cart-item-left'>
                     {cart_items.map((item, idx) => {
                         return (
-                            <div className='ci' key={item.id} >
-                                <a href={`#/products/${item.product_id}`}>
-                                    <h3>{item.title}</h3>
-                                </a>
+                            <div className='ci-main'>
+                                <div className='ci' key={item.id}>
+                                    <a href={`#/products/${item.product_id}`}>
+                                        <h3>{item.title}</h3>
+                                    </a>
 
-                                <CartImgContainer />
+                                    <CartImgContainer id={item.product_id} key={idx}/>
 
-                                <input
-                                    id={`${item.id}-quantity`}
-                                    type="number"
-                                    min='1'
-                                    defaultValue={item.quantity}
-                                    step='1'
-                                />
-                                <button onClick={() => this.updateQuantity(item.id, document.getElementById(`${item.id}-quantity`).value, item.product_id)}>Update Quantity</button>
-                                <button onClick={() => this.removeCartItem(item.id)}>Remove item</button><br />
-                                <p>Subtotal: {item.quantity} x ${item.price} = ${(item.quantity * item.price).toFixed(2)}</p>
+                                    <button onClick={() => this.removeCartItem(item.id)}>Remove item</button><br />
+                                    <p>Subtotal: {item.quantity} x ${item.price} each = ${(item.quantity * item.price).toFixed(2)}</p>
+                                </div>
+
+                                <div className='ci-right'>
+                                    <input
+                                        id={`${item.id}-quantity`}
+                                        type="number"
+                                        min='1'
+                                        defaultValue={item.quantity}
+                                        step='1'
+                                    />
+                                    <button onClick={() => this.updateQuantity(item.id, document.getElementById(`${item.id}-quantity`).value, item.product_id)}>Update Quantity</button>
+                                </div>
                             </div>
                         );
                     })}
@@ -110,7 +134,7 @@ class Cart extends React.Component {
         } else {
             cart_count = (<h3 className='cart-count'>Nothing in your cart</h3>)
         }
-        debugger
+
         return(
             <>
                 <div className="nav-container">
@@ -126,12 +150,12 @@ class Cart extends React.Component {
 
                             <div className='cart-vl'></div>
 
-                            <div className='cart-item-right'>
+                            {/* <div className='cart-item-right'>
                             Total: ${Math.round((cart_total + 0.00001) * 100) / 100}
                                 <br></br>
                                 <button onClick={this.handlePay}>Pay now</button>
-                            </div>
-                        
+                            </div> */}
+                            {cartRight}
                         </div>
                     </div>
 

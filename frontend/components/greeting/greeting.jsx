@@ -188,7 +188,7 @@ class Greeting extends React.Component {
                     {authButtons}
     
                     <div className="nav-icons">
-                        <a href='/'><i className="fas fa-briefcase"></i></a>
+                        <a href='/#/products'><i className="fas fa-briefcase"></i></a>
                         <p>Discover</p>
                     </div>
                     {borders}
