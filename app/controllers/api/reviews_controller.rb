@@ -16,7 +16,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Review.where(product_id: params[:productId])
+        @reviews = Review.where(product_id: params[:productId]).includes(:author)
         render :index
     end
 

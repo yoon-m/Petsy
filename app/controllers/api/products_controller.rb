@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
     def index
         if (!params[:searchValue] || params[:searchValue] === '')
-            @products = Product.with_attached_pictures.all
+            @products = Product.includes(:owner).with_attached_pictures.all
         else
             @products = Product.with_attached_pictures.where("title ILIKE ?", "#{params[:searchValue]}%")
         end

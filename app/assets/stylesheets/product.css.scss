@@ -179,15 +179,21 @@
 
 // REVIEW STARS
 .star-ratings-css {
- unicode-bidi: bidi-override;
- color: #c5c5c5;
- font-size: 25px;
- height: 25px;
- width: 100px;
- margin: 0 0 2% 0;
- position: relative;
-
- text-shadow: 0px 1px 0 #c9c9c9;
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 25px;
+  height: 25px;
+  width: 100px;
+  margin: 0 0 2% 0;
+  position: relative;
+  text-shadow: 0px 1px 0 #c9c9c9;
+  // disable text highlighting
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
  &-top {
    color: gold;

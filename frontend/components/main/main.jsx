@@ -23,6 +23,10 @@ class Main extends React.Component {
         }
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     componentDidUpdate(prevProps) {
         location.reload();
     }

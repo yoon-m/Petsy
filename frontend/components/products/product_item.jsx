@@ -123,7 +123,6 @@ class ProductItem extends React.Component {
             productRating /= this.props.reviews.length;
             
             productReviews = this.props.reviews.map(review => {
-                debugger
                 return (
                     <div key={review.id} className='review-post'>
                         <h4>{review.first_name} - {review.title}</h4>
