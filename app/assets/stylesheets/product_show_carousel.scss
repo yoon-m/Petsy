@@ -22,15 +22,15 @@
     width: 100%;
     height: 100%;
     padding: 10%;
-    background-color: rgb(238, 238, 238);
-    border: 3px solid #e4e4e4;
+    background-color: rgb(255, 237, 237);
+    object-fit: contain;
 }
 
 .ci-arrow {
     position: absolute;
     font-size: 30px;
     background-color: rgba(216, 216, 216, 0.337);
-    padding: 6%;
+    padding: 4%;
     top: 40%;
 }
 
