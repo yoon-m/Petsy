@@ -43,23 +43,31 @@ class ProductItem extends React.Component {
 
     addToCart(e) {
         e.preventDefault();
-        let quantity = document.getElementById('quantity').value;
-        let item = {
-            user_id: this.props.currentUser.id,
-            product_id: this.props.product.id,
-            quantity: quantity
-        };
-        this.props.fetchCart(this.props.currentUser.id);
-        this.props.addToCart(item).then(this.props.history.push('/cart'));
+        if (this.props.currentUser) {
+            let quantity = document.getElementById('quantity').value;
+            let item = {
+                user_id: this.props.currentUser.id,
+                product_id: this.props.product.id,
+                quantity: quantity
+            };
+            this.props.fetchCart(this.props.currentUser.id);
+            this.props.addToCart(item).then(this.props.history.push('/cart'));
+        } else {
+            this.props.history.push('/');
+        }
     }
 
     buyNow(e) {
         e.preventDefault();
-        swal(
-            <h1>Thanks for testing my website!</h1>,
-            {
-                icon: "success",
-            }).then(() => document.location.href = "/");
+        if (this.props.currentUser) {
+            swal(
+                <h1>Thanks for testing my website!</h1>,
+                {
+                    icon: "success",
+                }).then(() => document.location.href = "/");
+        } else {
+            this.props.history.push('/');
+        }
     }
 
     handleChange(field) {
