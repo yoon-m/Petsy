@@ -87,11 +87,13 @@ d = User.create(first_name: 'Nick', email: 'nick@gmail.com', password: 'starwars
 e = User.create(first_name: 'Rong', email: 'rong@gmail.com', password: 'starwars')
 
 # PRODUCTS
+p11 = Product.create(title: 'Dog Pajamas', owner_id: b.id, price: 21.99, description: loremBodies.sample)
 f = Product.create(title: 'Snake Bandana', owner_id: a.id, price: 2099.99, 
     description: "Add a retro pop of color to any of your casual outfits with this bandana. 
     With the classic paisley pattern, this set of two bandanas lets you decide if 
     you want to go with red or blue, so you can be sure that you get the ideal look each 
     time. Size: One Size. Material: Cotton ")
+p13 = Product.create(title: 'Dog Headphones', owner_id: e.id, price: 199.99, description: loremBodies.sample)
 g = Product.create(title: 'Horse Hat', owner_id: b.id, price: 99.99, 
     description: 'A woven wide brim fedora with a faux leather buckle strap. 
     Content + Care- Shell 1: 100% wool- Shell 2: 100% polyurethane- Other contents: 
@@ -100,6 +102,7 @@ h = Product.create(title: 'Panda Beanie', owner_id: c.id, price: 9.99,
     description: 'This stocking hat is made of 100% acrylic with a logo label on the front. 
     This classic beanie provides comfort and warmth so you can guarantee to keep the 
     cold out during any winter adventure.')
+p12 = Product.create(title: 'Dog Glasses', owner_id: b.id, price: 299.99, description: loremBodies.sample)
 i = Product.create(title: 'Cat Necklace', owner_id: d.id, price: 3999.99, 
     description: 'This breathtaking pendant features a magnificent 8 mm freshwater 
     pearl...perfectly round, irresistibly luminous and totally breathtaking. Suspended 
@@ -117,10 +120,11 @@ j = Product.create(title: 'Bird Jacket', owner_id: a.id, price: 199.99,
     personally tailored feeling fit.")
 p1 = Product.create(title: 'Darth Vader Costume', owner_id: e.id, price: 19.99, description: loremBodies.sample)
 p2 = Product.create(title: 'Ironman Costume', owner_id: b.id, price: 29.99, description: loremBodies.sample)
-p3 = Product.create(title: 'Captain America Costume', owner_id: e.id, price: 13.99, description: loremBodies.sample)
+p10 = Product.create(title: 'Tiger Suit', owner_id: a.id, price: 3299.99, description: loremBodies.sample)
 p4 = Product.create(title: 'Pizza Cape', owner_id: c.id, price: 8.99, description: loremBodies.sample)
 p5 = Product.create(title: 'Burrito Outfit', owner_id: a.id, price: 13.99, description: loremBodies.sample)
 p6 = Product.create(title: 'Pirate Costume', owner_id: c.id, price: 23.99, description: loremBodies.sample)
+p3 = Product.create(title: 'Captain America Costume', owner_id: e.id, price: 13.99, description: loremBodies.sample)
 p7 = Product.create(title: 'Lion Mane Costume', owner_id: a.id, price: 12.99, description: loremBodies.sample)
 p8 = Product.create(title: 'Sushi Costume', owner_id: b.id, price: 42.99, description: loremBodies.sample)
 p9 = Product.create(title: 'Donut Hat', owner_id: b.id, price: 32.99, description: loremBodies.sample)
@@ -226,6 +230,25 @@ p9.pictures.attach(io: x, filename: 'donut-cat2.jpg')
 x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/donut-cat3.jpg')
 p9.pictures.attach(io: x, filename: 'donut-cat3.jpg')
 
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/tiger-suit.jpg')
+p10.pictures.attach(io: x, filename: 'tiger-suit.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/tiger-suit2.jpg')
+p10.pictures.attach(io: x, filename: 'tiger-suit2.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-pj.jpg')
+p11.pictures.attach(io: x, filename: 'dog-pj.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-pj2.jpg')
+p11.pictures.attach(io: x, filename: 'dog-pj2.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-glasses.jpg')
+p12.pictures.attach(io: x, filename: 'dog-glasses.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-glasses2.jpg')
+p12.pictures.attach(io: x, filename: 'dog-glasses2.jpg')
+
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-headphones.jpg')
+p13.pictures.attach(io: x, filename: 'dog-headphones.jpg')
+x = open('https://s3.amazonaws.com/aa-petsy-public/productpics/dog-headphones2.jpg')
+p13.pictures.attach(io: x, filename: 'dog-headphones2.jpg')
 
 # CART ITEMS
 CartItem.create(user_id: a.id, product_id: h.id, quantity: 3)
@@ -251,7 +274,10 @@ Review.create(author_id: a.id, product_id: p6.id, title: loremTitles.sample, bod
 Review.create(author_id: a.id, product_id: p7.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: a.id, product_id: p8.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: a.id, product_id: p9.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
-
+Review.create(author_id: a.id, product_id: p10.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: a.id, product_id: p11.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: a.id, product_id: p12.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: a.id, product_id: p13.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 
 Review.create(author_id: b.id, product_id: h.id, title: 'My panda loves his beanie!', body: 'My panda loves his new beanie but my shipment was extremely late.', rating: 3)
 Review.create(author_id: b.id, product_id: f.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
@@ -267,7 +293,10 @@ Review.create(author_id: b.id, product_id: p6.id, title: loremTitles.sample, bod
 Review.create(author_id: b.id, product_id: p7.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: b.id, product_id: p8.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: b.id, product_id: p9.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
-
+Review.create(author_id: b.id, product_id: p10.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: b.id, product_id: p11.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: b.id, product_id: p12.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: b.id, product_id: p13.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 
 Review.create(author_id: c.id, product_id: i.id, title: 'Great value', body: "You won't find better for this price", rating: 4)
 Review.create(author_id: c.id, product_id: f.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
@@ -283,6 +312,10 @@ Review.create(author_id: c.id, product_id: p6.id, title: loremTitles.sample, bod
 Review.create(author_id: c.id, product_id: p7.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: c.id, product_id: p8.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: c.id, product_id: p9.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: c.id, product_id: p10.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: c.id, product_id: p11.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: c.id, product_id: p12.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: c.id, product_id: p13.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 
 Review.create(author_id: d.id, product_id: j.id, title: 'I love this jacket!', body: 'Keeps little bobby warm in the winter', rating: 5)
 Review.create(author_id: d.id, product_id: f.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
@@ -298,7 +331,10 @@ Review.create(author_id: d.id, product_id: p6.id, title: loremTitles.sample, bod
 Review.create(author_id: d.id, product_id: p7.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: d.id, product_id: p8.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: d.id, product_id: p9.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
-
+Review.create(author_id: d.id, product_id: p10.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: d.id, product_id: p11.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: d.id, product_id: p12.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: d.id, product_id: p13.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 
 Review.create(author_id: e.id, product_id: g.id, title: 'Do not buy this!', body: 'My horse had a photoshoot and her hat was all ripped. Extremely disappointed.', rating: 1)
 Review.create(author_id: e.id, product_id: f.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
@@ -314,3 +350,7 @@ Review.create(author_id: e.id, product_id: p6.id, title: loremTitles.sample, bod
 Review.create(author_id: e.id, product_id: p7.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: e.id, product_id: p8.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
 Review.create(author_id: e.id, product_id: p9.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: e.id, product_id: p10.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: e.id, product_id: p11.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: e.id, product_id: p12.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
+Review.create(author_id: e.id, product_id: p13.id, title: loremTitles.sample, body: loremBodies.sample, rating: ([1, 2, 3, 4, 5]).sample)
