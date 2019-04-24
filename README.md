@@ -1,24 +1,34 @@
-# README
+# Petsy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Petsy is a marketplace for unique and handcrafted pet goods inspired by Etsy. Users can browse/create product listings, purchase products, and create reviews.
 
-Things you may want to cover:
+[Check out the live site!](https://petsy-aa.herokuapp.com/#/)
 
-* Ruby version
+## Technologies
 
-* System dependencies
+- React
+- Redux
+- Ruby on Rails
+- JavaScript
+- JQuery
+- PostgreSQL
+- Amazon Web Services S3
+- HTML
+- CSS
 
-* Configuration
+## Features
+### _User Log-in, Registration, and Demo Account_
 
-* Database creation
+Users can create an account and log in, or test the site using a demo account. Accounts each have their own reviews, shopping carts, and listings which persist across sesions.
 
-* Database initialization
+### _Product Search Bar and Produst Listing Index_
 
-* How to run the test suite
+Users can search for items by name using the search bar, and see an index of all results. Alternatively, users can look through all products.
 
-* Services (job queues, cache servers, search engines, etc.)
+### _Reviews_
 
-* Deployment instructions
+Users can leave reviews on products and see the product's rating update immediately.
 
-* ...
+### _Cart_
+
+Users can add items to their cart, and demo payment.
