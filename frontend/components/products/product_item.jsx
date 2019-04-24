@@ -123,10 +123,14 @@ class ProductItem extends React.Component {
             productRating /= this.props.reviews.length;
             
             productReviews = this.props.reviews.map(review => {
+                debugger
                 return (
                     <div key={review.id} className='review-post'>
                         <h4>{review.first_name} - {review.title}</h4>
-                        <p>Rating: {review.rating} / 5</p>
+                        <div className="star-ratings-css">
+                            <div className="star-ratings-css-top" style={{ width: `${(review.rating / 5) * 100}%` }}><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            <div className="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        </div>
                         <p>{review.body}</p>
                     </div>
                 );
