@@ -30,7 +30,7 @@ class Sell extends React.Component {
             formData.append('product[pictures][]', this.state.pictures[i]);
         }
 
-        this.props.createProduct(formData).then(this.props.history.push('/'));
+        this.props.createProduct(formData).then(this.props.history.push(`/products/`).then(() => location.reload()));
     }
 
     handleChange(field) {
