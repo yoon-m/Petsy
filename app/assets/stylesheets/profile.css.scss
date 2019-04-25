@@ -78,6 +78,10 @@
     font-size: 14px;
 }
 
+.profile-product-text a:hover, .profile-review-text a:hover {
+    color: grey;
+}
+
 // STARS
 .profile-star-ratings-css {
   unicode-bidi: bidi-override;
