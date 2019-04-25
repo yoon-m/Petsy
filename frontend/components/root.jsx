@@ -11,6 +11,7 @@ import SearchPageContainer from './search_page/search_page_container';
 import TestContainer from './test/test_container';
 import AboutPage from './about_page/about_page';
 import ComingSoon from './coming_soon/coming_soon';
+import ProfileContainer from './profile/profile_container';
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -23,6 +24,7 @@ const Root = ({ store }) => (
                 <Route path='/test' exact component={TestContainer} />
                 <Route path='/about' exact component={AboutPage} />
                 <Route path='/soon' exact component={ComingSoon} />
+                <Route path='/profile' exact component={ProfileContainer} />
                 <ProtectedRoute path='/cart' exact component={CartContainer}/>
                 <ProtectedRoute path='/sell' exact component={SellContainer} />
             </Switch>

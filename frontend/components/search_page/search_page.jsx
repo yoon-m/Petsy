@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
+import Modal from '../modal/modal';
 import ProductIndexItem from '../../components/products/product_index_item';
 
 class SearchPage extends React.Component {
@@ -26,6 +27,7 @@ class SearchPage extends React.Component {
             <div className="nav-container">
                 <GreetingContainer />
                 <CategoryNav />
+                <Modal />
 
                 <h1>Search Products</h1>
                 

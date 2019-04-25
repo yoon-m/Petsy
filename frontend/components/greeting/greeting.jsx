@@ -109,7 +109,7 @@ class Greeting extends React.Component {
                             </div>
 
                             <div className="dropdown-content" id='panel' onMouseLeave={this.leaveDropdown.bind(this)} >
-                                <Link to='/soon'><div className='dropdown-content-top'>
+                                <Link to='/profile'><div className='dropdown-content-top'>
                                     <img src={'https://s3.amazonaws.com/aa-petsy-public/defaultAvatar.jpg'} className='avatar' />
                                     {this.props.currentUser.first_name}
                                     <br />

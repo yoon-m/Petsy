@@ -1,0 +1,117 @@
+.profile-product-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-product-item {
+    width: 10%;
+    height: 15vh;
+    margin-bottom: 8%;
+}
+
+.profile-product-item:hover {
+    cursor: pointer;
+}
+
+.profile-product-item:not(:last-child) {
+    margin-right: 2%;
+}
+
+.profile-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Guardian-EgypTT",serif;
+}
+
+.profile-product-item-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-products-title {
+    margin-bottom: 2%;
+}
+
+.profile-reviews-title {
+    margin: 1% 0;
+}
+
+.profile-review-item-top h4:not(:last-child) {
+    margin-bottom: 1%;
+}
+
+.profile-product-item-top img:hover {
+    box-shadow: 0px 0px 3px 3px grey;
+}
+
+.profile-reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-review-item img {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-review-item {
+    width: 10%;
+    height: 15vh;
+    margin-bottom: 8%;
+}
+
+.profile-review-item:not(:last-child) {
+    margin-right: 2%;
+}
+
+.profile-review-item:hover {
+    cursor: pointer;
+}
+
+.profile-product-text a {
+    color: black;
+    font-size: 14px;
+}
+
+.profile-review-text a {
+    color: black;
+    font-size: 14px;
+}
+
+// STARS
+.profile-star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 25px;
+  height: 25px;
+  width: 100px;
+  margin: 0 0 2% 0;
+  position: relative;
+  text-shadow: 0px 1px 0 #c9c9c9;
+  // disable text highlighting
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+ &-top {
+   color: gold;
+   padding: 0;
+   position: absolute;
+   z-index: 1;
+   display: block;
+   top: 0;
+   left: 0;
+   overflow: hidden;
+   font-size: 20px;
+ }
+
+ &-bottom {
+   padding: 0;
+   display: block;
+   z-index: 0;
+   font-size: 20px;
+ }
+}
