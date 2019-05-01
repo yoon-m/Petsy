@@ -32,3 +32,11 @@ Users can leave reviews on products and see the product's rating update immediat
 ### _Cart_
 
 Users can add items to their cart, and demo payment.
+
+## Things to be implemented in the future
+### Chat with customer support
+  Use action cables to have live chat with a customer support representative
+### Store profiles
+  Have store profile pages where you can see all items that belong to a specific store, as well as other information about the store(average product rating, number of products sold, when the store was established).
+### Categories
+  Have categories for each item and build the megadropdown menu featured on Etsy.
