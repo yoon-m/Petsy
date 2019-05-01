@@ -16,9 +16,6 @@ class SearchPage extends React.Component {
         
         if (this.props.searchResults) {
             results = this.props.searchResults.map(result => {
-                // return (
-                //     <a key={result.id} href={`/#/products/${result.id}`}><p>{result.title}</p></a>
-                // )
                 return (<ProductIndexItem product={result} key={result.id} />);
             });
         }

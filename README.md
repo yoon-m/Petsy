@@ -37,7 +37,8 @@ Users can add items to their cart, and demo payment.
 
 ## Code Highlights
 ### Image sliders created dynamically to support products with differing amounts of uploaded photos
-```constructor(props) {
+```
+constructor(props) {
         super(props);
         this.state = {
             img_pos: 0,
@@ -55,6 +56,20 @@ Users can add items to their cart, and demo payment.
         let newPos = (((this.state.img_pos + 1) % numPics) + numPics) % numPics;
         this.setState({ img_pos: newPos });
     }
+```
+
+### Search products without using custom routes (maintain RESTful API)
+```
+def index
+  if (!params[:searchValue] || params[:searchValue] === '')
+      @products = Product.includes(:owner).with_attached_pictures.all
+  else
+      @products = Product.with_attached_pictures.where("title ILIKE ?", "#{params[:searchValue]}%")
+  end
+  
+  render :index
+end
+```
 
 ## Things to be implemented in the future
 ### Chat with customer support
