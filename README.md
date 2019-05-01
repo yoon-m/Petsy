@@ -35,6 +35,27 @@ Users can leave reviews on products and see the product's rating update immediat
 
 Users can add items to their cart, and demo payment.
 
+## Code Highlights
+### Image sliders created dynamically to support products with differing amounts of uploaded photos
+```constructor(props) {
+        super(props);
+        this.state = {
+            img_pos: 0,
+        };
+    }
+
+    prevImg() {
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos - 1) % numPics) + numPics) % numPics;
+        this.setState({ img_pos: newPos });
+    }
+
+    nextImg() {
+        let numPics = this.props.product.photoUrls.length;
+        let newPos = (((this.state.img_pos + 1) % numPics) + numPics) % numPics;
+        this.setState({ img_pos: newPos });
+    }
+
 ## Things to be implemented in the future
 ### Chat with customer support
   Use action cables to have live chat with a customer support representative
