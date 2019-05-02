@@ -27,6 +27,19 @@ class Api::ProductsController < ApplicationController
         end
     end
 
+    def destroy
+        @product = Product.find_by(id: params[:id])
+
+        @reviews = Review.where(product_id: @product.id)
+        @cartItems = CartItem.where(product_id: @product.id)
+
+        @product.delete
+        @reviews.delete_all
+        @cartItems.delete_all
+
+        render :show
+    end
+
     private
     def product_params
         params.require(:product).permit(:title, :owner_id, :price, :description, pictures: [])

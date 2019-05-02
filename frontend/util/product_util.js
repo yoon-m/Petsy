@@ -29,3 +29,10 @@ export const searchProducts = searchValue => (
         data: { searchValue }
     })
 );
+
+export const deleteProduct = id => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/products/${id}`,
+    })
+);

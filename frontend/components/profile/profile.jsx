@@ -3,8 +3,8 @@ import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
 import Modal from '../modal/modal';
-import ProfileProducts from './profile_products';
-import ProfileReviews from './profile_reviews';
+import ProfileProductsContainer from './profile_products_container';
+import ProfileReviewsContainer from './profile_reviews_container';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class Profile extends React.Component {
             Object.values(this.props.reviews).forEach(review => {
                 if (this.props.currentUser.id === review.author_id) {
                     reviews.push(review);
-                    reviewIds.push(review.id);
+                    reviewIds.push(review.product_id);
                 }
             });
 
@@ -54,8 +54,8 @@ class Profile extends React.Component {
                     
                     <h1>Welcome, {this.props.currentUser.first_name}</h1>
                     
-                    <ProfileProducts myProducts={products} />
-                    <ProfileReviews myReviews={reviews} reviewedProducts={reviewedProducts} />
+                    <ProfileProductsContainer myProducts={products} />
+                    <ProfileReviewsContainer myReviews={reviews} reviewedProducts={reviewedProducts} />
 
                     <Footer />
                 </div>

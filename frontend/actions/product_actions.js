@@ -5,6 +5,7 @@ export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const RECEIVE_PRODUCT_ERRORS = 'RECEIVE_PRODUCT_ERRORS';
 export const CLEAR_PRODUCT_ERRORS = 'CLEAR_PRODUCT_ERRORS';
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 export const receiveProducts = products => {
     return {
@@ -34,6 +35,13 @@ export const search = searchResults => ({
     searchResults
 });
 
+export const removeProduct = product => {
+    return {
+        type: REMOVE_PRODUCT,
+        product
+    };
+};
+
 export const fetchProducts = () => dispatch => {
     return ProductAPIUtil.fetchAllProducts().then(products => dispatch(receiveProducts(products)));
 };
@@ -49,4 +57,8 @@ export const createProduct = product => dispatch => {
 
 export const searchProducts = searchValue => dispatch => {
     return ProductAPIUtil.searchProducts(searchValue).then(products => dispatch(search(products)));
+};
+
+export const deleteProduct = id => dispatch => {
+    return ProductAPIUtil.deleteProduct(id).then(product => dispatch(removeProduct(product)));
 };

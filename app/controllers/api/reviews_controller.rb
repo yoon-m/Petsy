@@ -19,7 +19,7 @@ class Api::ReviewsController < ApplicationController
         if params[:productId]
             @reviews = Review.where(product_id: params[:productId]).includes(:author)
         else
-            @reviews = Review.all
+            @reviews = Review.all.includes(:author)
         end
 
         render :index

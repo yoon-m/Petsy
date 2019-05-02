@@ -4,12 +4,12 @@
 }
 
 .profile-product-item {
-    width: 10%;
-    height: 15vh;
+    width: 30vh;
+    height: 30vh;
     margin-bottom: 8%;
 }
 
-.profile-product-item:hover {
+.profile-product-item img:hover {
     cursor: pointer;
 }
 
@@ -20,6 +20,7 @@
 .profile-products-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     font-family: "Guardian-EgypTT",serif;
 }
 
@@ -47,6 +48,7 @@
 .profile-reviews-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .profile-review-item img {
@@ -55,31 +57,35 @@
 }
 
 .profile-review-item {
-    width: 10%;
-    height: 15vh;
+    width: 31vh;
+    height: 31vh;
     margin-bottom: 8%;
+    
 }
 
 .profile-review-item:not(:last-child) {
     margin-right: 2%;
 }
 
-.profile-review-item:hover {
+.profile-review-item img:hover {
     cursor: pointer;
 }
 
 .profile-product-text a {
     color: black;
     font-size: 14px;
+    text-decoration: underline;
 }
 
 .profile-review-text a {
     color: black;
     font-size: 14px;
+    text-decoration: underline;
 }
 
 .profile-product-text a:hover, .profile-review-text a:hover {
     color: grey;
+    cursor: pointer;
 }
 
 // STARS
@@ -118,4 +124,8 @@
    z-index: 0;
    font-size: 20px;
  }
+}
+
+.profile-review-item-top h4 {
+    white-space: nowrap;
 }

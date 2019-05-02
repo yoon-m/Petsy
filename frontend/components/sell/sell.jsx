@@ -2,6 +2,7 @@ import React from 'react';
 import GreetingContainer from '../greeting/greeting_container';
 import CategoryNav from '../category_nav/category_nav';
 import Footer from '../footer/footer';
+import swal from '@sweetalert/with-react';
 
 class Sell extends React.Component {
     constructor(props) {
@@ -30,7 +31,13 @@ class Sell extends React.Component {
             formData.append('product[pictures][]', this.state.pictures[i]);
         }
 
-        this.props.createProduct(formData).then(this.props.history.push(`/products/`).then(() => location.reload()));
+        this.props.createProduct(formData)
+            .then(() => this.props.history.push(`/products/`), () => swal(
+                <h1>Please upload an image.</h1>,
+                {
+                    icon: "error",
+                })
+            .then(() => location.reload()));
     }
 
     handleChange(field) {

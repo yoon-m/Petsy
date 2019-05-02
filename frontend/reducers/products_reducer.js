@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_ALL_PRODUCTS, RECEIVE_PRODUCT } from '../actions/product_actions';
+import { RECEIVE_ALL_PRODUCTS, RECEIVE_PRODUCT, REMOVE_PRODUCT } from '../actions/product_actions';
 
 const productsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,6 +11,10 @@ const productsReducer = (state = {}, action) => {
         case RECEIVE_PRODUCT:
             return action.product;
         
+        case REMOVE_PRODUCT:
+            delete newState[Object.values(action.product)[0].id];
+            return newState;
+
         default:
             return newState;
     }

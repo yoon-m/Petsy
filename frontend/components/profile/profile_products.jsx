@@ -1,11 +1,32 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import swal from '@sweetalert/with-react';
 
 class ProfileProducts extends React.Component {
     linkShow(id) {
         this.props.history.push(`/products/${id}`);
     }
     
+    removeListing(id) {
+        swal({
+            icon: "warning",
+            text: "Are you sure you want to delete this listing?",
+            buttons: {
+                cancel: "Cancel",
+                yes: {
+                    text: "Yes",
+                    value: "remove",
+                },
+            },
+        })
+        .then( value => {
+            switch (value) {
+                case "remove":
+                    this.props.deleteProduct(id);
+            }
+        });
+    }
+
     render() {
         return (
             <>
@@ -13,12 +34,12 @@ class ProfileProducts extends React.Component {
                 <div className='profile-products-container'>
                     {this.props.myProducts.map(product => {
                         return (
-                            <div className='profile-product-item' onClick={() => this.linkShow.bind(this)(product.id)}>
-                                <div className='profile-product-item-top'><h4>{product.title}</h4><h4>{product.price}</h4></div>
-                                <img src={product.photoUrls[0]} />
+                            <div className='profile-product-item' key={product.id}>
+                                <div className='profile-product-item-top'><h4>{product.title}</h4></div>
+                                <img src={product.photoUrls[0]} onClick={() => this.linkShow.bind(this)(product.id)} />
+                                <p>${(product.price).toFixed(2)}</p>
                                 <div className='profile-product-text'>
-                                    <a href="/#/soon">Update Listing</a><br/>
-                                    <a href="/#/soon">Remove Listing</a>
+                                    <a onClick={() => this.removeListing.bind(this)(product.id)}>Remove Listing</a>
                                 </div>
                             </div>
                         );
