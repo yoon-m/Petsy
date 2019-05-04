@@ -139,6 +139,7 @@ class ProfileReviews extends React.Component {
 
                 <div id='edit-review-modal-bg'></div>
                 <div id='edit-review-modal'>
+                    <h1>Edit your review</h1>
                     <div className="star-edit">
                         <input type="radio" id="5-stars-edit" name="rating" value="5" onClick={this.ratingClick} required defaultChecked />
                         <label htmlFor="5-stars-edit" className="e-star">&#9733;</label>
@@ -153,11 +154,11 @@ class ProfileReviews extends React.Component {
                     </div>
 
                     <form>
-                        <span>Title:</span><input type="text" id='edit-title' required/><br/>
-                        <span>Body:</span><textarea cols="30" rows="10" id='edit-body' required></textarea><br/>
+                        <span className='edit-titles'>Title:</span><input type="text" id='edit-title' required/><br/>
+                        <span className='edit-titles'>Body:</span><textarea cols="30" rows="10" id='edit-body' required></textarea><br/>
                     
-                        <button onClick={() => this.cancelEdit.bind(this)()}>Cancel</button>
-                        <input type="submit" onClick={() => this.submitReview()} value='Submit'/>
+                        <button className='edit-btns' onClick={() => this.cancelEdit.bind(this)()}>Cancel</button>
+                        <input className='edit-btns' type="submit" onClick={() => this.submitReview()} value='Submit'/>
                     </form>
 
                     

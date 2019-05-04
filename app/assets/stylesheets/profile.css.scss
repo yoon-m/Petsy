@@ -145,7 +145,7 @@
     display: none;
     position: absolute;
     width: 50vw;
-    height: 30vh;
+    height: fit-content;
     border: 1px solid grey;
     border-radius: 5px;
     background-color: white;
@@ -153,6 +153,28 @@
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
+    padding: 2%;
+}
+
+ .edit-btns {
+    padding: 1%;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 5%;
+    margin-top: 2%;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.edit-titles {
+    font-weight: 700;
+    padding: 2% 0;
+    display: block;
+}
+
+.edit-btns:hover {
+    background-color: rgb(58, 58, 58);
 }
 
 #edit-body {
