@@ -129,3 +129,69 @@
 .profile-review-item-top h4 {
     white-space: nowrap;
 }
+
+#edit-review-modal-bg {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 1000vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.94);
+    z-index: 99;
+}
+
+#edit-review-modal {
+    display: none;
+    position: absolute;
+    width: 50vw;
+    height: 30vh;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 99999;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#edit-body {
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#edit-title {
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 1%;
+}
+
+// edit stars
+.star-edit {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:2em;
+  justify-content:space-around;
+  text-align:center;
+  width:5em;
+}
+
+.star-edit input {
+  display:none;
+}
+
+.star-edit label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-edit :checked ~ label {
+  color:#fc0;
+}
+
+.star-edit label:hover,
+.star-edit label:hover ~ label {
+  color:#f90;
+}

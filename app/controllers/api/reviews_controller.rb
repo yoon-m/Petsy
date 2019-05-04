@@ -31,6 +31,18 @@ class Api::ReviewsController < ApplicationController
         render :show
     end
 
+    def update
+        @review = Review.find_by(id: params[:id])
+
+        @review.title = params[:review][:title]
+        @review.body = params[:review][:body]
+        @review.rating = params[:review][:rating]
+
+        if @review.update(review_params)
+            render :show
+        end
+    end
+
     private
     def review_params
         params.require(:review).permit(:author_id, :product_id, :title, :body, :rating)
