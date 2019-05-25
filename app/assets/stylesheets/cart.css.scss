@@ -5,9 +5,10 @@
 }
 
 .cart-item-left input[type=number] {
-  width: 15%;
+  width: 20%;
   border-radius: 5px;
   text-align: center;
+  font-size: 12px;
 }
 
 .cart-item-container {
@@ -52,14 +53,6 @@
   margin-top: 1%;
 }
 
-.cart-item-left button {
-  color: white;
-  background-color: black;
-  border-radius: 5px;
-  font-size: 18px;
-  padding: 1.5%;
-}
-
 .cart-item-left a {
   text-decoration: none;
   color: black;
@@ -95,3 +88,28 @@
 .c-empty a {
   color: rgb(167, 167, 167);
 }
+
+.cart-hl {
+  border-bottom: 1px solid grey;
+  width: 80%;
+}
+
+.cart-hl-bottom {
+  margin-bottom: 4%;
+}
+
+.ci-right-span {
+  color: rgb(36, 36, 252);
+  font-size: 12px;
+}
+
+.ci-right-span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cart-right {
+  position: absolute;
+  right: 30vw;
+}
+

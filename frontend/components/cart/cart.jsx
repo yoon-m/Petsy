@@ -96,29 +96,40 @@ class Cart extends React.Component {
                 <div className='cart-item-left'>
                     {cart_items.map((item, idx) => {
                         return (
-                            <div className='ci-main'>
-                                <div className='ci' key={item.id}>
-                                    <a href={`#/products/${item.product_id}`}>
-                                        <h3>{item.title}</h3>
-                                    </a>
+                            <>
+                                <div className='cart-hl'></div>
+                                <div className='ci-main'>
+                                    <div className='ci'>
+                                        <a href={`#/products/${item.product_id}`}>
+                                            <h3>{item.title}</h3>
+                                        </a>
 
-                                    <CartImgContainer id={item.product_id} key={idx}/>
+                                        <CartImgContainer id={item.product_id} key={idx}/>
+                                        <p>${item.price}</p>
+                                        <span
+                                            className='ci-right-span'
+                                            onClick={() => this.removeCartItem(item.id)}>
+                                                Remove item
+                                        </span>
+                                    </div>
 
-                                    <button onClick={() => this.removeCartItem(item.id)}>Remove item</button><br />
-                                    <p>Subtotal: {item.quantity} x ${item.price} each = ${(item.quantity * item.price).toFixed(2)}</p>
+                                    <div className='cart-right'>
+                                        <input
+                                            id={`${item.id}-quantity`}
+                                            type="number"
+                                            min='1'
+                                            defaultValue={item.quantity}
+                                            step='1'
+                                        />
+                                        <span 
+                                            className='ci-right-span'
+                                            onClick={() => this.updateQuantity(item.id, document.getElementById(`${item.id}-quantity`).value, item.product_id)}>
+                                                Update Quantity
+                                        </span>
+                                    </div>
                                 </div>
-
-                                <div className='ci-right'>
-                                    <input
-                                        id={`${item.id}-quantity`}
-                                        type="number"
-                                        min='1'
-                                        defaultValue={item.quantity}
-                                        step='1'
-                                    />
-                                    <button onClick={() => this.updateQuantity(item.id, document.getElementById(`${item.id}-quantity`).value, item.product_id)}>Update Quantity</button>
-                                </div>
-                            </div>
+                            <div className='cart-hl cart-hl-bottom'></div>
+                            </>
                         );
                     })}
                 </div>
@@ -147,14 +158,7 @@ class Cart extends React.Component {
                         {cart_count}
                         <div className='cart-item-container'>
                             {items}                
-
                             <div className='cart-vl'></div>
-
-                            {/* <div className='cart-item-right'>
-                            Total: ${Math.round((cart_total + 0.00001) * 100) / 100}
-                                <br></br>
-                                <button onClick={this.handlePay}>Pay now</button>
-                            </div> */}
                             {cartRight}
                         </div>
                     </div>
