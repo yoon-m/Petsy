@@ -23,9 +23,6 @@ const App = () => (
 
         <About />
         <Footer />
-        {/* unnecessary routes b/c we're using MODALS */}
-        {/* <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} /> */}
     </div>
 );
 
