@@ -1,10 +1,11 @@
-#[Petsy](https://petsy-aa.herokuapp.com/#/)
+#Petsy
+[Check out the live site!](https://petsy-aa.herokuapp.com/#/)
 ![](splash.png)
 ![](indexitem.png)
 
 Petsy is a marketplace for unique and handcrafted pet goods inspired by Etsy. Users can browse/create product listings, purchase products, and create reviews.
 
-[Check out the live site!](https://petsy-aa.herokuapp.com/#/)
+
 
 ## Technologies
 
