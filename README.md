@@ -1,4 +1,4 @@
-[# Petsy](https://petsy-aa.herokuapp.com/#/)
+#[Petsy](https://petsy-aa.herokuapp.com/#/)
 ![](splash.png)
 ![](indexitem.png)
 
