@@ -1,4 +1,4 @@
-#Petsy
+# Petsy
 [Check out the live site!](https://petsy-aa.herokuapp.com/#/)
 ![](splash.png)
 ![](indexitem.png)
